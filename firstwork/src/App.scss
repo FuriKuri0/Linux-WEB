@@ -1,0 +1,7 @@
+@media screen and (max-aspect-ratio: 1/1) {
+    @import 'phone';
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+    @import 'pc';
+}

@@ -1,0 +1,18 @@
+.background {
+  background: pink;
+  width: 100vw;
+  height: 15vh;
+  overflow: hidden;
+}
+.background:nth-child(3) {
+  position: absolute;
+  z-index: -2;
+  bottom: 0;
+  background: rgb(29, 79, 29);
+  opacity: 0.8;
+}
+.background img {
+  margin-top: -10px;
+  height: 132%;
+  width: 100vw;
+}/*# sourceMappingURL=index.css.map */

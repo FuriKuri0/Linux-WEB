@@ -1,5 +1,4 @@
 import axios from 'axios'
-import React from 'react'
 // import { Alert } from 'antd';
 import True from '../assets/images/true.png'
 import False from '../assets/images/false.png'

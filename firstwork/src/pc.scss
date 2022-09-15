@@ -1,8 +1,9 @@
-@media screen and (min-aspect-ratio: 1/1) {
-  body {
-    background-color: rgb(222, 231, 222) !important;
-  }
-  .main {
+body {
+    background-color: rgba(222, 231, 222, 1) !important;
+
+}
+
+.main {
     position: relative;
     z-index: -1;
     width: 65vw;
@@ -14,13 +15,14 @@
     padding-top: 15px;
     color: rgba(0, 0, 0, 0.65);
     background: rgb(255, 255, 255);
-  }
-  .main .top {
-    font-size: 14px;
-    width: 100%;
-    padding-left: 100px;
-  }
-  .main .top i {
-    color: rgba(0, 0, 0, 0.45);
-  }
-}/*# sourceMappingURL=App.css.map */
+
+    .top {
+        font-size: 14px;
+        width: 100%;
+        padding-left: 100px;
+
+        i {
+            color: rgba(0, 0, 0, 0.45);
+        }
+    }
+}

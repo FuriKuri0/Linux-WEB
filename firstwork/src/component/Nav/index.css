@@ -1,0 +1,47 @@
+/* 导航栏样式 */
+
+.head {
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.head-header {
+    width: 70%;
+    margin-left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 0;
+    background-color: #fff;
+}
+
+.head-header .dlzcbg {
+    right: -1vw;
+    width: 365px;
+    height: 520px;
+    position: absolute;
+    z-index: 9999;
+    cursor: default;
+    background: no-repeat url('../../assets/images/dlzc.png');
+    background-position: -423px -384px;
+    /* background-color: pink; */
+    box-shadow: 61px 120px 504px -4px rgba(0, 0, 0, 0.16);
+
+}
+
+
+.head-logo:hover {
+    cursor: pointer;
+}
+
+.head-logo {
+    width: 200px;
+}
+
+
+
+.head-menu {
+    width: 100%;
+}
