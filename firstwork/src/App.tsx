@@ -12,6 +12,7 @@ import { createContext } from 'react'
 import './base.css'
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function }
 export const Context = createContext<context>()
+
 function App() {
   const element = useRoutes(routes);
   const [menu, setMenu] = React.useState('主页面')
