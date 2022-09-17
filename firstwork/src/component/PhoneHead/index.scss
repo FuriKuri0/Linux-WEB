@@ -1,13 +1,17 @@
 $r1: 30vw;
-$r2: 27vw;
+$r2: 26.5vw;
 $r3: 25vw;
-$height: 43.5vh;
+$height: 43vh;
+
+
 
 .PhoneHead {
     position: relative;
     width: 100vw;
     height: $height;
     overflow: hidden;
+
+
 
     .head {
         position: fixed;
@@ -17,7 +21,7 @@ $height: 43.5vh;
         width: 100vw;
         height: 5vh;
         background-color: rgba(0, 0, 0, .1);
-        padding: 0px 10px;
+        padding: 0px 15px;
 
         img {
             display: flex;
@@ -34,7 +38,7 @@ $height: 43.5vh;
         position: absolute;
         left: 5vw;
         top: 8vh;
-        font-size: 16px;
+        font-size: 5vw;
         font-weight: 700;
         color: rgba(255, 255, 255, 1);
         font-style: italic
@@ -50,7 +54,7 @@ $height: 43.5vh;
         border-radius: $r1 / 2;
         background-color: white;
         position: absolute;
-        bottom: $height - 40vh;
+        bottom: $height - 41vh;
         left: 50%;
         transform: translateX(-50%);
     }
@@ -59,7 +63,8 @@ $height: 43.5vh;
         width: $r2;
         height: $r2;
         border-radius: $r2 / 2;
-        border-top: 2px solid rgba(0, 125, 82, 1);
+        bottom: $height - 40vh;
+        border: 2px solid rgba(0, 125, 82, 1);
 
     }
 
@@ -67,6 +72,8 @@ $height: 43.5vh;
         width: $r3;
         height: $r3;
         border-radius: $r3 / 2;
+        bottom: $height - 39.8vh;
+        z-index: 3;
 
         img {
             width: 100%;
@@ -75,15 +82,16 @@ $height: 43.5vh;
 
     .root {
         position: absolute;
-        z-index: -1;
+        z-index: 2;
         display: flex;
         justify-content: space-between;
         padding: 0px 10px;
         width: 100%;
         bottom: $height - 40vh;
         border-top: 1px solid rgba(0, 125, 82, 1);
-        // background: pink;
+        background: white;
         height: 7.5vh;
+        font-size: 4vw;
 
         div {
             display: flex;

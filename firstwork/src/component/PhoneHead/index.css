@@ -1,7 +1,7 @@
 .PhoneHead {
   position: relative;
   width: 100vw;
-  height: 43.5vh;
+  height: 43vh;
   overflow: hidden;
 }
 .PhoneHead .head {
@@ -12,7 +12,7 @@
   width: 100vw;
   height: 5vh;
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 0px 10px;
+  padding: 0px 15px;
 }
 .PhoneHead .head img {
   display: flex;
@@ -26,7 +26,7 @@
   position: absolute;
   left: 5vw;
   top: 8vh;
-  font-size: 16px;
+  font-size: 5vw;
   font-weight: 700;
   color: rgb(255, 255, 255);
   font-style: italic;
@@ -40,34 +40,39 @@
   border-radius: 15vw;
   background-color: white;
   position: absolute;
-  bottom: 3.5vh;
+  bottom: 2vh;
   left: 50%;
   transform: translateX(-50%);
 }
 .PhoneHead .round:nth-child(5) {
-  width: 27vw;
-  height: 27vw;
-  border-radius: 13.5vw;
-  border-top: 2px solid rgb(0, 125, 82);
+  width: 26.5vw;
+  height: 26.5vw;
+  border-radius: 13.25vw;
+  bottom: 3vh;
+  border: 2px solid rgb(0, 125, 82);
 }
 .PhoneHead .round:nth-child(6) {
   width: 25vw;
   height: 25vw;
   border-radius: 12.5vw;
+  bottom: 3.2vh;
+  z-index: 3;
 }
 .PhoneHead .round:nth-child(6) img {
   width: 100%;
 }
 .PhoneHead .root {
   position: absolute;
-  z-index: -1;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   padding: 0px 10px;
   width: 100%;
-  bottom: 3.5vh;
+  bottom: 3vh;
   border-top: 1px solid rgb(0, 125, 82);
+  background: white;
   height: 7.5vh;
+  font-size: 4vw;
 }
 .PhoneHead .root div {
   display: flex;

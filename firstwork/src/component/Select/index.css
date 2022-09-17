@@ -1,11 +1,31 @@
 .dlzc .ant-select-selector {
-  padding-top: 5px !important;
+  font-size: 5vw;
+  padding-top: 1vh !important;
   height: 7vh !important;
   border-radius: 3vw !important;
+}
+.dlzc .ant-select-arrow {
+  font-size: 5vw;
+}
+@media screen and (min-width: 600px) {
+  .dlzc .ant-select-selector {
+    padding-top: 2vh !important;
+  }
+  .dlzc .ant-input {
+    padding-top: 1vh !important;
+  }
+  .dlzc .ant-select-item {
+    font-size: 5vw !important;
+    line-height: 1.5715 !important;
+  }
+}
+.dlzc .ant-input::placeholder {
+  font-size: 4vw;
 }
 .dlzc .confirmBtn {
   margin-top: 20px;
   margin-left: 50%;
+  font-size: 4vw;
   transform: translateX(-50%);
   width: 90%;
   height: 7vh;
