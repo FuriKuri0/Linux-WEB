@@ -3,13 +3,14 @@ import './index.css'
 import Dropdown from '../Dropdown'
 import Dlzc from '../Dlzc'
 import { Context } from '../../App'
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function }
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 export default function PhoneHead() {
-    const { maskClick, setMask, setMaskClick } = useContext<context>(Context)
+    const { maskClick, setMask, setMaskClick, menu } = useContext<context>(Context)
     const arr: object = { home: '主页面', setting: '设置', histogram: '柱状图', waveform: '波形图', record: '事件记录', warning: '警告', }
     const [showdl, setShowdl] = React.useState(false)
     var formateT = new Date().getFullYear() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getDate() + ' ' + new Date().getHours() + ":" + (new Date().getMinutes() > 10 ? new Date().getMinutes() : '0' + new Date().getMinutes())
     const [time, setTime] = React.useState(formateT)
+
     React.useEffect(() => {
         var interval;
         if (!interval) {
@@ -46,7 +47,7 @@ export default function PhoneHead() {
                 <div className='round'></div>
                 <div className='round'></div>
                 <div className='round'><img src="https://img.js.design/assets/img/6321ebe141250db0945f6b7f.png#f3829f67611cf5a66e7b0f19148e492b" alt="" /></div>
-                <div className='root'><div>监管主页面</div><div>{time}</div></div>
+                <div className='root'><div>{menu}</div><div>{time}</div></div>
                 <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', bottom: '0px', fontSize: '16px' }}>待机</div>
             </div>
         </>
