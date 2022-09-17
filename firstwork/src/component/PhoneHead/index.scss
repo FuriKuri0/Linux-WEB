@@ -1,4 +1,14 @@
+$r1: 30vw;
+$r2: 27vw;
+$r3: 25vw;
+$height: 43.5vh;
+
 .PhoneHead {
+    position: relative;
+    width: 100vw;
+    height: $height;
+    overflow: hidden;
+
     .head {
         position: fixed;
         display: flex;
@@ -31,7 +41,55 @@
     }
 
     .bgImg {
+        width: 120%;
+    }
+
+    .round {
+        width: $r1;
+        height: $r1;
+        border-radius: $r1 / 2;
+        background-color: white;
+        position: absolute;
+        bottom: $height - 40vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .round:nth-child(5) {
+        width: $r2;
+        height: $r2;
+        border-radius: $r2 / 2;
+        border-top: 2px solid rgba(0, 125, 82, 1);
+
+    }
+
+    .round:nth-child(6) {
+        width: $r3;
+        height: $r3;
+        border-radius: $r3 / 2;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .root {
+        position: absolute;
+        z-index: -1;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 10px;
         width: 100%;
+        bottom: $height - 40vh;
+        border-top: 1px solid rgba(0, 125, 82, 1);
+        // background: pink;
+        height: 7.5vh;
+
+        div {
+            display: flex;
+            color: rgba(56, 56, 56, 1);
+        }
+
     }
 
 }

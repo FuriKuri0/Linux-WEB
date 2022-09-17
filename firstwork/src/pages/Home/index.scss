@@ -1,0 +1,13 @@
+.Home {
+    .border {
+        position: absolute;
+        bottom: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: 40vh;
+        border-radius: 10px;
+        border: 2px solid rgba(0, 138, 90, 1);
+        background-color: rgba(0, 0, 0, 0);
+    }
+}

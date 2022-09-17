@@ -19,7 +19,7 @@ const routes = [
     },
     {
         path: '',
-        element: <Navigate to='namel' />
+        element: <Navigate to='home' />
 
         // element: <Navigate to={React.getCookie('user')?React.getCookie('user')==='root'?'/manageproject':'/userproject':'/dlzc'} />
     }

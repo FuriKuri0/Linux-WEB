@@ -1,3 +1,9 @@
+.PhoneHead {
+  position: relative;
+  width: 100vw;
+  height: 43.5vh;
+  overflow: hidden;
+}
 .PhoneHead .head {
   position: fixed;
   display: flex;
@@ -26,5 +32,44 @@
   font-style: italic;
 }
 .PhoneHead .bgImg {
+  width: 120%;
+}
+.PhoneHead .round {
+  width: 30vw;
+  height: 30vw;
+  border-radius: 15vw;
+  background-color: white;
+  position: absolute;
+  bottom: 3.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.PhoneHead .round:nth-child(5) {
+  width: 27vw;
+  height: 27vw;
+  border-radius: 13.5vw;
+  border-top: 2px solid rgb(0, 125, 82);
+}
+.PhoneHead .round:nth-child(6) {
+  width: 25vw;
+  height: 25vw;
+  border-radius: 12.5vw;
+}
+.PhoneHead .round:nth-child(6) img {
   width: 100%;
+}
+.PhoneHead .root {
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  width: 100%;
+  bottom: 3.5vh;
+  border-top: 1px solid rgb(0, 125, 82);
+  height: 7.5vh;
+}
+.PhoneHead .root div {
+  display: flex;
+  color: rgb(56, 56, 56);
 }/*# sourceMappingURL=index.css.map */

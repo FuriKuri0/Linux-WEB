@@ -1,0 +1,20 @@
+.HomeComponent {
+  position: absolute;
+  bottom: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 38vh;
+  border-radius: 10px;
+  background-color: rgb(123, 224, 123);
+  transition: all 0.3s;
+}
+
+.fuzhuRight {
+  left: 73%;
+  bottom: 24vh;
+  width: 47%;
+  height: 28vh;
+  border-radius: 10px;
+  background-color: rgb(39, 184, 39);
+}/*# sourceMappingURL=index.css.map */

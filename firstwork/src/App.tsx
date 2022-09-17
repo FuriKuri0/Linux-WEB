@@ -10,20 +10,25 @@ import './App.css';
 import './utils/globalfunction'
 import { createContext } from 'react'
 import './base.css'
-export const Context = createContext('')
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function }
+export const Context = createContext<context>()
 function App() {
   const element = useRoutes(routes);
   const [menu, setMenu] = React.useState('主页面')
-  const [type, setType] = React.useState('pc');
+  const [type, setType] = React.useState('phone');
   const [load, setLoad] = React.useState(false);
   const [mask, setMask] = React.useState(false)
-
+  const [maskClick, setMaskClick] = React.useState(false)
+  const cancelMask = () => {
+    setMaskClick(true)
+  }
   //判断设备类型
-  React.useEffect(() => {
-    window.addEventListener('resize', () => {
-      window.innerHeight > window.innerWidth ? setType('phone') : setType('pc');
-    })
-  }, [])
+  // React.useEffect(() => {
+  //   window.innerHeight > window.innerWidth ? setType('phone') : setType('pc');
+  //   window.addEventListener('resize', () => {
+  //     window.innerHeight > window.innerWidth ? setType('phone') : setType('pc');
+  //   })
+  // }, [])
   //跟踪目录
   React.useEffect(() => {
     let arr = window.location.href.split('/')
@@ -42,9 +47,9 @@ function App() {
       >
       </Spin> : ''}
       {/* 黑幕 */}
-      {mask ? <div style={{ position: 'absolute', zIndex: '1', width: '100vw', height: '100vh', background: 'rgba(0,0,0,.1)' }}></div> : ''}
+      {mask ? <div onClick={cancelMask} style={{ position: 'absolute', zIndex: '1', width: '100vw', height: '100vh', background: 'rgba(0,0,0,.3)' }}></div> : ''}
       {/* 状态管理：加载中 黑幕*/}
-      <Context.Provider value={{ setLoad, setMask }}>
+      <Context.Provider value={{ setLoad, setMask, maskClick, setMaskClick }}>
         {type === 'pc' ?
           <>
             <Head kind='pc' />

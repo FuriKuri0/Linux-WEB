@@ -134,10 +134,12 @@ export const Alert = (data: string, type: number = 1, callback?: Function) => { 
   // 控制样式
   //增加透明度
   css(alert_box, {//控制盒子大小、背景颜色上下边距
-    'width': '20vw',
+    'width': '200px',
+    'height': '30px',
     'max-width': '90%',
-    'font-size': '1.0526vw',
+    'font-size': '16px',
     'text-align': 'center',
+    'line-height': '30px',
     'background-color': type ? 'rgb(246, 255, 237)' : 'rgb(243, 217, 213)',
     // 'border-radius': '15px',
     'position': 'absolute',
@@ -145,6 +147,7 @@ export const Alert = (data: string, type: number = 1, callback?: Function) => { 
     'left': '50%',
     'transform': 'translate(-50%, -50%)',
     'padding-left': '1.5vw',
+    'padding-top': '5px',
     'z-index': '99999999',
     'opacity': 0
 
@@ -153,16 +156,17 @@ export const Alert = (data: string, type: number = 1, callback?: Function) => { 
   css(alert_text, {
     'padding': '.6579vw .9868vw',
     'z-index': '99999999',
+    'line-height': '15px',
+
     // 'border-bottom': '1px solid #ddd'
   });
 
   css(alert_img, {
     'position': 'absolute',
     'left': '.6579vw',
-    'top': '.5263vw',
+    'top': '-1px',
 
-    'width': '2vw',
-    'height': '2vw  ',
+    'width': '30px',
     'z-index': '99999999',
     'cursor': 'pointer'
   });
@@ -190,7 +194,8 @@ export const Alert = (data: string, type: number = 1, callback?: Function) => { 
   //减少透明度
   const deleteOpacity = () => {
     var target = document.querySelector('.alertbox') as HTMLElement
-    if (parseInt(target.style.opacity) < 0) {
+
+    if (parseInt(target.style.opacity) <= 0) {
       clearInterval(time2);
       if (alert_box.parentNode) {
         alert_box.parentNode.removeChild(alert_box);

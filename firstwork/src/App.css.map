@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["App.scss","pc.scss"],"names":[],"mappings":"AAIA;ECJA;IACI;;EAIJ;IACI;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;;EAEA;IACI;IACA;IACA;;EAEA;IACI","file":"App.css"}
+{"version":3,"sourceRoot":"","sources":["phone.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA","file":"App.css"}
