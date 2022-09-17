@@ -33,7 +33,7 @@ function App() {
   //跟踪目录
   React.useEffect(() => {
     let arr = window.location.href.split('/')
-    console.log(arr[arr.length - 1]);
+    // console.log(arr[arr.length - 1]);
     switch (arr[arr.length - 1]) {
       case 'setting': setMenu('设置'); break;
       case 'home': setMenu('主页面'); break;
