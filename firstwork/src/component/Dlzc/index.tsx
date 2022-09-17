@@ -15,10 +15,10 @@ export default function Dlzc({ show }: Props) {
     return (
         <div className={show ? 'dlzc show' : 'dlzc'}>
             <div className='title'><strong>登录</strong><br />登录用户以继续!</div>
-            <Select fontSize='16px' option={['标准用户', '高级用户', '检测人员']} setType={setType} />
+            <Select option={['标准用户', '高级用户', '检测人员']} setType={setType} />
             <Input.Password
                 onChange={e => setPassport(e.target.value)}
-                style={{ borderRadius: '3vw', height: '7vh', width: '90%', marginTop: '14px', marginLeft: '50%', transform: 'translateX(-50%)', }}
+                style={{ fontSize: '5vw', borderRadius: '3vw', height: '7vh', width: '90%', marginTop: '14px', marginLeft: '50%', transform: 'translateX(-50%)', }}
                 placeholder="密码"
                 iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
             />

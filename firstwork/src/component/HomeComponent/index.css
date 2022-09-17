@@ -6,19 +6,19 @@
   transform: translateX(-50%);
   width: 65%;
   height: 38vh;
-  border-radius: 10px;
+  border-radius: 5vw;
   background-color: rgb(123, 224, 123);
   transition: all 0.5s;
-  font-size: 25px;
+  font-size: 6vw;
   padding-top: 15px;
   color: rgb(5, 86, 58);
 }
 .HomeComponent ul li {
   position: relative;
-  font-size: 16px;
-  height: 24px;
+  font-size: 4vw;
+  height: 4vh;
   font-weight: 500;
-  padding: 0px 25px;
+  padding: 0px 5vh;
   width: 100%;
   margin-top: 18px;
 }
@@ -42,7 +42,7 @@
   height: 80vh;
   border-radius: 5vw;
   background-color: rgb(255, 255, 160);
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .Homedetailhide {
@@ -51,23 +51,23 @@
 }
 
 .fuzhu {
-  font-size: 15px;
+  font-size: 3vw;
   padding-top: 5px;
   z-index: 1;
   bottom: 28vh;
   width: 42%;
   height: 26vh;
-  border-radius: 10px;
+  border-radius: 5vw;
   background-color: rgb(39, 184, 39);
 }
 .fuzhu ul li {
-  font-size: 12px;
+  font-size: 2vw;
   display: flex;
   justify-content: space-between;
   font-weight: 500;
-  padding: 0px 30px;
+  padding: 0px 6vw;
   width: 100%;
-  margin-top: 12px;
+  margin-top: 1vh;
 }
 
 .fuzhuLeft {

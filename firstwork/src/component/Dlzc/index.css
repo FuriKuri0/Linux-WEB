@@ -12,14 +12,14 @@
   overflow: hidden;
 }
 .dlzc .title {
-  font-size: 12px;
+  font-size: 3vw;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
-  padding-top: 10px;
+  padding-top: 3vh;
 }
 .dlzc .title strong {
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 5vw;
   color: rgb(0, 0, 0);
 }
 

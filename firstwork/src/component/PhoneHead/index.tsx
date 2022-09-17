@@ -48,7 +48,7 @@ export default function PhoneHead() {
                 <div className='round'></div>
                 <div className='round'><img src="https://img.js.design/assets/img/6321ebe141250db0945f6b7f.png#f3829f67611cf5a66e7b0f19148e492b" alt="" /></div>
                 <div className='root'><div>{menu}</div><div>{time}</div></div>
-                <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', bottom: '0px', fontSize: '16px' }}>待机</div>
+                <div style={{ position: 'absolute', width: "100vw", background: 'white', textAlign: 'center', bottom: '0px', fontSize: '3.5vw' }}>待机</div>
             </div>
         </>
     )
