@@ -1,4 +1,5 @@
 import Home from '../pages/Home'
+import Setting from '../pages/Setting'
 import { Navigate } from 'react-router-dom'
 
 const routes = [
@@ -16,6 +17,11 @@ const routes = [
         //         element: <Navigate to='namel' />
         //     }
         // ]
+    },
+    //设置
+    {
+        path: '/setting',
+        element: <Setting />,
     },
     {
         path: '',

@@ -10,7 +10,7 @@ import './App.css';
 import './utils/globalfunction'
 import { createContext } from 'react'
 import './base.css'
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function }
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 export const Context = createContext<context>()
 
 function App() {
@@ -44,13 +44,13 @@ function App() {
       {/* 加载中 */}
       {load ? <Spin
         tip="Loading..."
-        style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%) translateY(-50%)', top: '50%', zIndex: 999 }}
+        style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%) translateY(-50%)', top: '50%', zIndex: 1000 }}
       >
       </Spin> : ''}
       {/* 黑幕 */}
-      {mask ? <div onClick={cancelMask} style={{ position: 'absolute', zIndex: '1', width: '100vw', height: '100vh', background: 'rgba(0,0,0,.3)' }}></div> : ''}
+      {mask ? <div onClick={cancelMask} style={{ position: 'absolute', zIndex: '999', width: '100vw', height: '100vh', background: 'rgba(0,0,0,.3)' }}></div> : ''}
       {/* 状态管理：加载中 黑幕*/}
-      <Context.Provider value={{ setLoad, setMask, maskClick, setMaskClick }}>
+      <Context.Provider value={{ setLoad, setMask, maskClick, setMaskClick, menu }}>
         {type === 'pc' ?
           <>
             <Head kind='pc' />
