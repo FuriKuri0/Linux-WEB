@@ -11,7 +11,7 @@ export default function MyDropdown({ nav }: Props) {
     const { setMask } = useContext<context>(Context)
     let items: Array<object> = [];
     const handleMenu = (open: boolean) => {
-        console.log(open);
+        // console.log(open);
 
         open ? setMask(true) : setMask(false)
     }

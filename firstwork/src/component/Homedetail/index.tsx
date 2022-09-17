@@ -14,7 +14,7 @@ export default function Homedetail({ className, type }: Props) {
     }, [type])
 
     const getEquipmentData = () => {
-        console.log(type);
+        // console.log(type);
 
         let data = [{ '': ['A', 'B', 'C', 'N'] },
         { '电压 U': ['0.0V', '0.0V', '0.0V', '0.0V'] },
