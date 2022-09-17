@@ -1,20 +1,61 @@
 .HomeComponent {
   position: absolute;
-  bottom: 6vh;
+  z-index: 3;
+  bottom: 10vh;
   left: 50%;
   transform: translateX(-50%);
   width: 65%;
   height: 38vh;
   border-radius: 10px;
   background-color: rgb(123, 224, 123);
-  transition: all 0.3s;
+  transition: all 0.5s;
+  font-size: 25px;
+  padding-top: 15px;
+  color: rgb(5, 86, 58);
+}
+.HomeComponent ul li {
+  position: relative;
+  font-size: 16px;
+  height: 24px;
+  font-weight: 500;
+  padding: 0px 25px;
+  width: 100%;
+  margin-top: 18px;
+}
+.HomeComponent ul li div:last-child {
+  position: absolute;
+  top: 0px;
+  left: 74%;
+}
+.HomeComponent .title {
+  width: 100%;
+  text-align: center;
+}
+
+.fuzhu {
+  font-size: 15px;
+  padding-top: 5px;
+  z-index: 1;
+  bottom: 28vh;
+  width: 42%;
+  height: 26vh;
+  border-radius: 10px;
+  background-color: rgb(39, 184, 39);
+}
+.fuzhu ul li {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  padding: 0px 30px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.fuzhuLeft {
+  left: 23.5%;
 }
 
 .fuzhuRight {
-  left: 73%;
-  bottom: 24vh;
-  width: 47%;
-  height: 28vh;
-  border-radius: 10px;
-  background-color: rgb(39, 184, 39);
+  left: 77%;
 }/*# sourceMappingURL=index.css.map */

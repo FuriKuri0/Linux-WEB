@@ -1,6 +1,7 @@
 .Home .border {
   position: absolute;
-  bottom: 5vh;
+  z-index: 3;
+  bottom: 9vh;
   left: 50%;
   transform: translateX(-50%);
   width: 70%;
@@ -8,4 +9,18 @@
   border-radius: 10px;
   border: 2px solid rgb(0, 138, 90);
   background-color: rgba(0, 0, 0, 0);
+}
+.Home .changeBtn {
+  position: absolute;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0);
+  left: 87%;
+  top: 62%;
+}
+.Home .changeBtn img {
+  width: 40px;
+}
+.Home .changeBtn:last-child {
+  left: 3%;
+  top: 62%;
 }/*# sourceMappingURL=index.css.map */
