@@ -1,7 +1,9 @@
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Modal } from 'antd';
 import React,{ useState,useEffect } from 'react'
 import './index.css'
 
-type Props={ status?:string, text?:string, type?:string }
+type Props={ type?:string }
 
 // 按钮组件 供四种状态 默认为白底绿字
 export default function MyButton( props?: Props ) {
@@ -14,14 +16,22 @@ export default function MyButton( props?: Props ) {
     const [text,setText]=useState('');
     // 自定义颜色
     const [custom,setCustom]=useState({ backgroundColor:'white',color:'rgba(7, 129, 87, 1)' });
+
+    // 对话框设置
+    const confirm = (content:string) => {
+      Modal.confirm({
+        title: '注意',
+        icon: <ExclamationCircleOutlined />,
+        content: `${content}`,
+        okText: '确认',
+        cancelText: '取消',
+      });
+    };
     
     // 初始化设置
     useEffect(()=>{
       switch(type){
-        case 'parallel': setColor('white');setText('2路');break;
-        case 'acting': setColor('white');setText('0.98');break;
         case 'CTPosition': setColor('yellow');setText('负载侧');break;
-        case 'CTRatio': setColor('white');setText('1000/5');break;
         case 'compensation': setColor('red');setText('无功优先');break;
         case 'idle': setColor('green');setText('关闭');break;
         case 'imbalance': setColor('green');setText('关闭');break;
@@ -30,6 +40,8 @@ export default function MyButton( props?: Props ) {
         case 'copy': setColor('white');setText('拷贝到多路');break;
         case 'phase': setColor('yellow');setText('正序');break;
         case 'output': setColor('yellow');setText('正常');break;
+        case 'TSCSwitch': setColor('green');setText('禁用');break;
+        case 'switchMode': setColor('green');setText('自动');break;
         default: setColor('red');setText('系统出错');break;
       }
     },[])
@@ -90,6 +102,28 @@ export default function MyButton( props?: Props ) {
             case 'yellow':setColor('green');setText('运行');break;
             case 'green':setColor('yellow');setText('正常');break;
           }
+        };break;
+        // TSC开关
+        case 'TSCSwitch':{
+          switch(color){
+            case 'yellow':setColor('green');setText('禁用');break;
+            case 'green':setColor('yellow');setText('使能');break;
+          }
+        };break;
+        // 投切方式
+        case 'switchMode':{
+          switch(color){
+            case 'yellow':setColor('green');setText('自动');break;
+            case 'green':setColor('yellow');setText('手动');break;
+          }
+        };break;
+        // 恢复出厂设置
+        case 'restore':{
+          confirm('您确定要恢复出厂设置吗？');
+        };break;
+        // 拷贝参数
+        case 'copy':{
+          confirm('您确定要拷贝参数吗?');
         };break;
       }
       

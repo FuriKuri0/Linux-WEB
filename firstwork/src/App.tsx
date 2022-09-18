@@ -1,7 +1,7 @@
-import 'antd/dist/antd.min.css'
+import 'antd/dist/antd.variable.min.css';
 import React from 'react';
 import { useRoutes } from 'react-router-dom'
-import { Spin } from 'antd';
+import { Spin, ConfigProvider } from 'antd';
 import routes from './routes'
 import Head from './component/Head';
 import PhoneHead from './component/PhoneHead';
@@ -10,6 +10,14 @@ import './App.css';
 import './utils/globalfunction'
 import { createContext } from 'react'
 import './base.css'
+
+// 自定义主题色
+ConfigProvider.config({
+  theme: {
+    primaryColor: 'rgba(7, 129, 87, 1)',
+  },
+});
+
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 export const Context = createContext<context>()
 

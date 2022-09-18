@@ -30,6 +30,7 @@
   border-radius: 10px;
   margin-bottom: 10px;
   background: rgb(123, 224, 123);
+  overflow: auto;
 }
 .SettingComponent .box .content {
   display: flex;
