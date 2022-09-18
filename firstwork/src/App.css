@@ -4,16 +4,33 @@ body {
   overflow: hidden;
 }
 
+@media screen and (min-aspect-ratio: 1/1) {
+  .bgImg {
+    display: none;
+  }
+  .PhoneHead {
+    height: 0;
+  }
+  .HomeComponent {
+    height: 60vh;
+  }
+  .HomeComponent ul li {
+    height: 7vh;
+  }
+}
 @media screen and (min-width: 600px) {
   .ant-select-item {
     font-size: 3.5vw !important;
     line-height: 1.5715 !important;
   }
   .ant-dropdown-menu-title-content a {
-    font-size: 5vw;
+    font-size: 3vw;
     font-weight: 200;
   }
   .ant-dropdown-menu-title-content {
-    line-height: 5vh;
+    line-height: 3vh;
+  }
+  .right .head:nth-child(n+2) li {
+    margin: 2.6vh 5vw;
   }
 }/*# sourceMappingURL=App.css.map */

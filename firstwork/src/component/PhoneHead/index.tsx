@@ -6,7 +6,7 @@ import { Context } from '../../App'
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 export default function PhoneHead() {
     const { maskClick, setMask, setMaskClick, menu } = useContext<context>(Context)
-    const arr: object = { home: '主页面', setting: '设置', histogram: '柱状图', waveform: '波形图', record: '事件记录', warning: '警告', }
+    const arr: object = { home: '主页面', setting: '设置', user: '用户分路', tsc: 'TSC参数', chart: '图表', record: '事件记录', warning: '告警', }
     const [showdl, setShowdl] = React.useState(false)
     var formateT = new Date().getFullYear() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getDate() + ' ' + new Date().getHours() + ":" + (new Date().getMinutes() > 10 ? new Date().getMinutes() : '0' + new Date().getMinutes())
     const [time, setTime] = React.useState(formateT)

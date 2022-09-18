@@ -6,6 +6,7 @@
 }
 .PhoneHead .head {
   position: fixed;
+  z-index: 998;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,7 +73,7 @@
   border-top: 1px solid rgb(0, 125, 82);
   background: white;
   height: 7.5vh;
-  font-size: 4vw;
+  font-size: 3vw;
 }
 .PhoneHead .root div {
   display: flex;

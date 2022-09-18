@@ -1,0 +1,41 @@
+.right {
+    padding-top: 2vh;
+    padding-right: 50vw;
+
+    .head {
+        display: flex;
+        width: 100vw;
+        margin: 0;
+
+        li {
+            text-align: center;
+            margin: 0 9vw;
+            font-size: 5vw;
+            font-weight: 500;
+            display: flex;
+        }
+    }
+
+    .head:nth-child(n+2) {
+        li {
+            margin: 2.5vh 5vw;
+        }
+    }
+
+    .head:last-child {
+        margin-bottom: 30px;
+
+        li {
+            margin: 5.5vw 10vw 0 10vw;
+
+        }
+
+        div {
+            width: 5vw;
+            height: 5vw;
+            background-color: red;
+            border-radius: 5vw;
+            border: 2px solid gray;
+        }
+    }
+}

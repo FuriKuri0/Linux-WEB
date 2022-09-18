@@ -37,6 +37,13 @@ function App() {
     switch (arr[arr.length - 1]) {
       case 'setting': setMenu('设置'); break;
       case 'home': setMenu('主页面'); break;
+      case 'user': setMenu('用户分路'); break;
+      case 'tsc': setMenu('TSC参数'); break;
+      case 'chart': setMenu('图表'); break;
+      case 'record': setMenu('事件记录'); break;
+      case 'warning': setMenu('告警'); break;
+
+
     }
   }, [window.location.href])
   return (
