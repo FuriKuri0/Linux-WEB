@@ -1,0 +1,21 @@
+.MyInputNumber {
+    position: relative;
+    .after {
+        position: absolute;
+        top: 12px;
+        right: -17px;
+    }
+    .ant-input-number {
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        color: rgba(7, 129, 87, 1);
+        box-shadow: 2px 2px 4px rgba(0,0,0,.5);
+        input {
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+}

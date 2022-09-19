@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["index.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;EAGA;EACA;;;AAGJ;EACI;EACA","file":"index.css"}
+{
+    "version": 3,
+    "sources": [
+        "index.scss",
+        "index.css"
+    ],
+    "names": [],
+    "mappings": "AAAA;EACI,YAAA;EACA,YAAA;EACA,0CAAA;EAGA,eAAA;EACA,gBAAA;ACDJ",
+    "file": "index.css"
+}
