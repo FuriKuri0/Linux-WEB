@@ -3,6 +3,7 @@ import React from 'react'
 import './index.css'
 import MyButton from '../../component/MyButton'
 import TSCContent from '../../component/TSCContent';
+import MyDrawer from '../../component/MyDrawer';
 
 export default function TSC() {
 
@@ -16,6 +17,7 @@ export default function TSC() {
 
     return (
         <div className='TSC'>
+            <MyDrawer/>
             <h2 className="title">TSC参数</h2>
             <div className="TSCParam">
                 <TSCContent setting={TSCParam_1} />
@@ -23,7 +25,7 @@ export default function TSC() {
             </div>
             <div className="status">
                 <h2 className="title">状态</h2>
-                {TSCStatus.map((i) => <div className="TSC-content-container">{i.map((k) => <div className="content"><span>{k.name}</span></div>)}</div>)}
+                {TSCStatus.map((i,t) => <div className="TSC-content-container" key={`TSC-content-container-${t}`}>{i.map((k) => <div className="content" key={k.id}><span>{k.name}</span></div>)}</div>)}
             </div>
             <div className="group">
                 <div className="TSC-content-container">
