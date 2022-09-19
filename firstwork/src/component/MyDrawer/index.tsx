@@ -2,9 +2,9 @@ import { Button, Drawer, Radio, RadioChangeEvent, Space } from 'antd';
 import React, { useState } from 'react';
 import './index.css'
 
-type Props={ title?:string, content?:string }
+type Props={ title?:string, content?:string, status?:boolean }
 
-const MyDrawer = () => {
+const MyDrawer = (props:Props) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -24,7 +24,7 @@ const MyDrawer = () => {
       </Space>
       <Drawer
         className='MyDrawer'
-        title={<span className='title'>参数复制</span>}
+        title={<span className='title'>{props?.title?props?.title:'标题未加载出来'}</span>}
         placement='bottom'
         height={300}
         closable={false}
@@ -37,7 +37,7 @@ const MyDrawer = () => {
             </>
         }
       >
-        <div className='content'>确认要拷贝参数吗?</div>
+        <div className='content'>{props?.content?props.content:'内容尚未加载出来'}</div>
       </Drawer>
     </>
   );
