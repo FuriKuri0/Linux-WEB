@@ -2,15 +2,15 @@ import React from 'react'
 import './index.css'
 import UserComponentLeft from '../UserComponentLeft'
 import UserComponentRight from '../UserComponentRight'
+type Props = { dataLeft: Array<string>, dataRight: Array<Array<config> | string> }
+type config = { background: string, text: string }
 
-export default function UserComponent() {
-    const dataLeft = ['用户输入', '并联系数', '目标因功', 'CT位置', 'CT变比', '通讯状态']
-    const dataRight = ['补偿模式', '无功开关', '不平衡', '谐波开关', '相序设置', '输出选择', '输出状态']
+export default function UserComponent({ dataLeft, dataRight }: Props) {
 
     return (
         <div className='UserComponent'>
-            <UserComponentLeft data={dataRight} />
-            <UserComponentRight />
+            <UserComponentLeft data={dataLeft} />
+            <UserComponentRight data={dataRight} />
         </div>
     )
 }

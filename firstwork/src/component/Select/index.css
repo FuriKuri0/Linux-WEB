@@ -19,12 +19,6 @@
     line-height: 1.5715 !important;
   }
 }
-.dlzc .ant-input::-moz-placeholder {
-  font-size: 4vw;
-}
-.dlzc .ant-input:-ms-input-placeholder {
-  font-size: 4vw;
-}
 .dlzc .ant-input::placeholder {
   font-size: 4vw;
 }

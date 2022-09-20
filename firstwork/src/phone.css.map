@@ -1,1 +1,1 @@
-{"version":3,"sources":["phone.scss","phone.css"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;EACA,gBAAA;ACCJ;;ADEA;EACI;IACI,2BAAA;IACA,8BAAA;ECCN;EDGM;IACI,cAAA;ECDV;EDME;IACI,gBAAA;ECJN;AACF","file":"phone.css"}
+{"version":3,"sourceRoot":"","sources":["phone.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;;;AAGJ;EACI;IACI;IACA;;EAIA;IACI;;EAKR;IACI","file":"phone.css"}

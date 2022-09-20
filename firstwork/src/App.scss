@@ -7,6 +7,7 @@ body {
     overflow: hidden;
 }
 
+//横过来
 @media screen and (min-aspect-ratio: 1/1) {
     .bgImg {
         display: none;
@@ -25,6 +26,7 @@ body {
     }
 }
 
+//ipad
 @media screen and (min-width:600px) {
     .ant-select-item {
         font-size: 3.5vw !important;
@@ -43,12 +45,30 @@ body {
         line-height: 3vh;
     }
 
-    .right .head:nth-child(n+2) li {
-        margin: 2.6vh 5vw;
+    .right {
+
+
+        .head li {
+            margin: 0 5.5vw;
+        }
+
+        .head:nth-child(n+2) li {
+            margin: 2.25vh 3vw;
+
+        }
+
+        .head:last-child li {
+            margin: 5.5vw 5vw 0 8vw !important;
+        }
     }
 
-}
+    .UserComponent2 .right {
+        .head:nth-child(n+2) li {
+            margin: 2.9vh 3vw;
+        }
+    }
 
-// @media screen and (min-aspect-ratio: 1/1) {
-//     @import 'pc';
-// }
+    // @media screen and (min-aspect-ratio: 1/1) {
+    //     @import 'pc';
+    // }
+}

@@ -6,7 +6,7 @@ import routes from './routes'
 import Head from './component/Head';
 import PhoneHead from './component/PhoneHead';
 
-import './App.css';
+import './App.scss';
 import './utils/globalfunction'
 import { createContext } from 'react'
 import './base.css'
