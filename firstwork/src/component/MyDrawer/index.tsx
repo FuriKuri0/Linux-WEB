@@ -1,6 +1,6 @@
 import { Button, Drawer, Radio, RadioChangeEvent, Space } from 'antd';
 import React, { useState } from 'react';
-import './index.css'
+import './index.scss'
 
 type Props={ title?:string, content?:string, status?:boolean }
 

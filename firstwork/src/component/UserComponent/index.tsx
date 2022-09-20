@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import UserComponentLeft from '../UserComponentLeft'
 import UserComponentRight from '../UserComponentRight'
 

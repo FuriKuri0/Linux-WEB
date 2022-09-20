@@ -1,7 +1,8 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import MyButton from '../../component/MyButton'
 import SettingComponent from '../../component/SettingComponent'
+import Histogram from '../Histogram'
 
 export default function Setting() {
     // 固定设置
@@ -21,12 +22,15 @@ export default function Setting() {
         { name: '相序设置', id: 'phase' },
         { name: '输出选择', id: 'output' }];
     return (
-        <div className='setting'>
-            <div className="body">
-                <SettingComponent setting={firstSetting} />
-                <SettingComponent setting={secondSetting} />
-                <SettingComponent setting={thirdSetting} />
+        <>
+            <div className='setting'>
+                <div className="body">
+                    <SettingComponent setting={firstSetting} />
+                    <SettingComponent setting={secondSetting} />
+                    <SettingComponent setting={thirdSetting} />
+                </div>
             </div>
-        </div>
+            <Histogram/>
+        </>
     )
 }

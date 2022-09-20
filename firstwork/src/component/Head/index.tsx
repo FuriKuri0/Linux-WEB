@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../Nav/index'
 import { getCookie } from '../../utils/globalfunction'
-import './index.css'
+import './index.scss'
 import bg from '../../assets/images/bg.jpg'
 type Props = { kind: string }
 export default function Head({ kind }: Props) {

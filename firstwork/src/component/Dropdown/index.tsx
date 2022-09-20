@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate, Outlet } from 'react-router-dom'
 import navBg from '../../assets/images/nav.png'
 import { Context } from '../../App'
-import './index.css'
+import './index.scss'
 
 type Props = { nav: any }
 type context = { setMask: Function, setLoad: Function }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import './index.css'
+import './index.scss'
 import Dropdown from '../Dropdown'
 import Dlzc from '../Dlzc'
 import { Context } from '../../App'

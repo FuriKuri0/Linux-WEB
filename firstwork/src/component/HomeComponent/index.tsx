@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Homedetail from '../Homedetail'
-import './index.css'
+import './index.scss'
 import { Context } from '../../App'
 
 type Props = { where: number, which: string, data: Array<object> }

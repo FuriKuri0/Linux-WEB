@@ -50,8 +50,6 @@ function App() {
       case 'chart': setMenu('图表'); break;
       case 'record': setMenu('事件记录'); break;
       case 'warning': setMenu('告警'); break;
-
-
     }
   }, [window.location.href])
   return (

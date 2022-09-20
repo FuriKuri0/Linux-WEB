@@ -1,9 +1,9 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { InputNumber, Popover, Space } from 'antd'
 import React, { useRef } from 'react'
-import './index.css'
+import './index.scss'
 
-type Props = { type?: string, tips?: boolean }
+type Props = { type?:string, tips?: boolean }
 
 export default function MyInputNumber(props?: Props) {
 
@@ -105,8 +105,15 @@ export default function MyInputNumber(props?: Props) {
             formatter = '%';
             step = 1;
         } break;
+        case 'manActing':{
+            min = 0;
+            max = 65535;
+            defaultValue = 0;
+            formatter = 'K';
+            step = 1;
+        }
     }
-    // `${value}${formatter}`
+
     return (
         <div className="MyInputNumber">
             <Space>

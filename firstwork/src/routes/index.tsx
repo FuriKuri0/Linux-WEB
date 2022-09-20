@@ -1,9 +1,9 @@
 import Home from '../pages/Home'
-
 import Setting from '../pages/Setting'
 import { Navigate } from 'react-router-dom'
 import User from '../pages/User'
 import TSC from '../pages/TSC'
+
 const routes = [
     //主页
     {
