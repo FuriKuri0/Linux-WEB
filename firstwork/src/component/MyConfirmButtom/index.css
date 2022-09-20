@@ -1,0 +1,30 @@
+.MyConfirmButton .face {
+  width: 100px;
+  height: 40px;
+}
+.MyConfirmButton .ant-drawer-header .title {
+  font-size: 20px;
+}
+.MyConfirmButton .ant-drawer-body .content {
+  text-align: center;
+  color: rgb(128, 128, 128);
+}
+.MyConfirmButton .ant-drawer-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50%;
+  padding: 0 0 13% 0;
+}
+.MyConfirmButton .ant-drawer-footer button {
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+}
+.MyConfirmButton .ant-drawer-footer .confirm {
+  background-color: rgb(0, 82, 204);
+}
+.MyConfirmButton .ant-drawer-footer .cancel {
+  background-color: rgb(202, 202, 202);
+}/*# sourceMappingURL=index.css.map */

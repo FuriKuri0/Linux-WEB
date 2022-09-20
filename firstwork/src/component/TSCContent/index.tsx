@@ -16,11 +16,11 @@ export default function TSCContent(props?: Props) {
             </div>
             <div className="content">
                 <span className='text'>{setting[0].name}</span>
-                {setting[0].id === 'TSCSwitch' ? <MyButton type='TSCSwitch' /> : <MyInputNumber type={setting[0].id} />}
+                {setting[0].id === 'TSCSwitch' ? <MyButton config={[{ background: 'green', text: '禁用' }, { background: 'yellow', text: '使能' }]}/> : <MyInputNumber type={setting[0].id} />}
             </div>
             <div className="content">
                 <span className='text'>{setting[1].name}</span>
-                {setting[1].id === 'switchMode' ? <MyButton type='switchMode' /> : <MyInputNumber type={setting[1].id} />}
+                {setting[1].id === 'switchMode' ? <MyButton config={[{ background: 'green', text: '自动' }, { background: 'yellow', text: '手动' }]}/> : <MyInputNumber type={setting[1].id} />}
             </div>
             <div className="content">
                 <span className='text'>{setting[2].name}</span>

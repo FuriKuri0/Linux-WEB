@@ -3,17 +3,18 @@ import { Modal } from 'antd';
 import React, { useState, useEffect } from 'react'
 import './index.css'
 
-type Props = { type?: string }
+type Props = { config?: any }
 
 // 按钮组件 供四种状态 默认为白底绿字
 export default function MyButton(props?: Props) {
-  const test = [{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }]
-  const type = props?.type;
+
+  const type = props?.config?props?.config:[{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }];
+  
   let [i, setI] = useState(0)
   // 颜色
-  const [color, setColor] = useState(test[i].background);
+  const [color, setColor] = useState(type[i].background);
   // 按钮文本
-  const [text, setText] = useState(test[i].text);
+  const [text, setText] = useState(type[i].text);
   // 自定义颜色
   const [custom, setCustom] = useState({ backgroundColor: 'white', color: 'rgba(7, 129, 87, 1)' });
 
@@ -57,14 +58,16 @@ export default function MyButton(props?: Props) {
       case 'pink': setCustom({ backgroundColor: 'rgba(250, 151, 249, 1)', color: 'white' }); break;
     }
   }, [color])
+
   // 点击事件
   function handleClick() {
-
-    if (i !== test.length - 1) {
-      setColor(test[i + 1].background); setText(test[i + 1].text)
-      setI(i + 1)
+    if (i !== type.length - 1) {
+      setColor(type[i + 1].background); 
+      setText(type[i + 1].text);
+      setI(i + 1);
     } else {
-      setColor(test[0].background); setText(test[0].text)
+      setColor(type[0].background); 
+      setText(type[0].text);
       setI(0)
     }
 

@@ -3,7 +3,7 @@ import React from 'react'
 import './index.css'
 import MyButton from '../../component/MyButton'
 import TSCContent from '../../component/TSCContent';
-import MyDrawer from '../../component/MyDrawer';
+import MyConfirmButton from '../../component/MyConfirmButtom';
 
 export default function TSC() {
 
@@ -17,7 +17,7 @@ export default function TSC() {
 
     return (
         <div className='TSC'>
-            <MyDrawer/>
+            <MyConfirmButton/>
             <h2 className="title">TSC参数</h2>
             <div className="TSCParam">
                 <TSCContent setting={TSCParam_1} />
@@ -35,74 +35,9 @@ export default function TSC() {
                         <span>模式</span>
                     </div>
                     <Badge className="content" count={1} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={1} status="warning" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={1} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={4} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={5} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                    </Badge>
-                    <Badge className="content" count={6} status="default" offset={[20, 18]}>
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
-                        <MyButton type='imbalance' />
+                        <MyButton config={[{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }]}/>
+                        <MyButton config={[{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }]}/>
+                        <MyButton config={[{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }]}/>
                     </Badge>
                 </div>
             </div>

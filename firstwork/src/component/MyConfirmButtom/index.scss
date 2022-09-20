@@ -1,0 +1,36 @@
+.MyConfirmButton {
+    .face {
+        width: 100px;
+        height: 40px;
+    }
+    .ant-drawer-header {
+        .title {
+            font-size: 20px;
+        }
+    }
+    .ant-drawer-body {
+        .content {
+            text-align: center;
+            color: rgba(128, 128, 128, 1);
+        }
+    }
+    .ant-drawer-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 50%;
+        padding:0 0 13% 0 ;
+        button {
+            width: 80%;
+            height: 40px;
+            border-radius: 20px;
+        }
+        .confirm {
+            background-color: rgba(0, 82, 204, 1);
+        }
+        .cancel {
+            background-color: rgb(202, 202, 202);
+        }
+    }
+}
