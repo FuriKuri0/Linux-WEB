@@ -1,4 +1,5 @@
 import 'antd/dist/antd.variable.min.css';
+import 'antd/dist/antd.min.css'
 import React from 'react';
 import { useRoutes } from 'react-router-dom'
 import { Spin, ConfigProvider } from 'antd';

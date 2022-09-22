@@ -4,6 +4,9 @@ import Setting from '../pages/Setting'
 import { Navigate } from 'react-router-dom'
 import User from '../pages/User'
 import TSC from '../pages/TSC'
+import Chart from '../pages/Chart'
+import Warning from '../pages/Warning'
+import Record from '../pages/Record'
 const routes = [
     //主页
     {
@@ -34,6 +37,21 @@ const routes = [
     {
         path: '/tsc',
         element: <TSC />,
+    },
+    //Chart
+    {
+        path: '/chart',
+        element: <Chart />,
+    },
+    //Record
+    {
+        path: '/record',
+        element: <Record />,
+    },
+    //Waring
+    {
+        path: '/warning',
+        element: <Warning />,
     },
     {
         path: '',
