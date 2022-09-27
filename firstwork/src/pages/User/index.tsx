@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import UserComponent from '../../component/UserComponent'
 export default function User() {
     const dataLeft1 = ['用户输入', '并联系数', '目标因功', 'CT位置', 'CT变比', '通讯状态']

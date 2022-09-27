@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import HomeComponent from '../../component/HomeComponent'
 export default function Home() {
     const [count, setCount] = React.useState(1)

@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 type Props = { className: string, type: number }
 export default function Homedetail({ className, type }: Props) {
     const [detailData, setDetailData] = React.useState<any>([{}])

@@ -1,6 +1,6 @@
 import { Select } from 'antd';
 import React from 'react';
-import './index.css'
+import './index.scss'
 const { Option } = Select;
 type Props = { option: Array<string>, setType: Function }
 export default function Index({ option, setType }: Props) {

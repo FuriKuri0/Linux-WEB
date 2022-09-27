@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import Select from '../Select'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input, Space, Button } from 'antd';

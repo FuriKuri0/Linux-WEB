@@ -1,7 +1,7 @@
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import React, { useState, useEffect } from 'react'
-import './index.css'
+import './index.scss'
 
 type Props = { config?: Array<config> }
 type config = { background: string, text: string }
