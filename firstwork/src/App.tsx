@@ -1,4 +1,5 @@
 import 'antd/dist/antd.variable.min.css';
+import 'antd/dist/antd.min.css'
 import React from 'react';
 import { useRoutes } from 'react-router-dom'
 import { Spin, ConfigProvider } from 'antd';
@@ -6,7 +7,7 @@ import routes from './routes'
 import Head from './component/Head';
 import PhoneHead from './component/PhoneHead';
 
-import './App.css';
+import './App.scss';
 import './utils/globalfunction'
 import { createContext } from 'react'
 import './base.css'

@@ -1,6 +1,5 @@
 .right {
     padding-top: 2vh;
-    padding-right: 50vw;
 
     .head {
         display: flex;
@@ -9,16 +8,20 @@
 
         li {
             text-align: center;
-            margin: 0 9vw;
+            margin: 0 15vw;
             font-size: 5vw;
             font-weight: 500;
             display: flex;
+        }
+
+        li:last-child {
+            margin-right: 10vw !important;
         }
     }
 
     .head:nth-child(n+2) {
         li {
-            margin: 2.5vh 5vw;
+            margin: 1.5vh 5vw;
         }
     }
 
@@ -26,7 +29,7 @@
         margin-bottom: 30px;
 
         li {
-            margin: 5.5vw 10vw 0 10vw;
+            margin: 5.5vw 16vw 0 16vw;
 
         }
 

@@ -3,13 +3,13 @@ import { Modal } from 'antd';
 import React, { useState, useEffect } from 'react'
 import './index.scss'
 
-type Props = { config?: any }
-
+type Props = { config?: Array<config> }
+type config = { background: string, text: string }
 // 按钮组件 供四种状态 默认为白底绿字
 export default function MyButton(props?: Props) {
 
-  const type = props?.config?props?.config:[{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }];
-  
+  const type = props?.config ? props?.config : [{ background: 'green', text: '开启' }, { background: 'white', text: '关闭' }];
+
   let [i, setI] = useState(0)
   // 颜色
   const [color, setColor] = useState(type[i].background);
@@ -62,11 +62,11 @@ export default function MyButton(props?: Props) {
   // 点击事件
   function handleClick() {
     if (i !== type.length - 1) {
-      setColor(type[i + 1].background); 
+      setColor(type[i + 1].background);
       setText(type[i + 1].text);
       setI(i + 1);
     } else {
-      setColor(type[0].background); 
+      setColor(type[0].background);
       setText(type[0].text);
       setI(0)
     }

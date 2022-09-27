@@ -30,7 +30,16 @@ body {
   .ant-dropdown-menu-title-content {
     line-height: 3vh;
   }
+  .right .head li {
+    margin: 0 5.5vw;
+  }
   .right .head:nth-child(n+2) li {
-    margin: 2.6vh 5vw;
+    margin: 2.25vh 3vw;
+  }
+  .right .head:last-child li {
+    margin: 5.5vw 5vw 0 8vw !important;
+  }
+  .UserComponent2 .right .head:nth-child(n+2) li {
+    margin: 2.9vh 3vw;
   }
 }/*# sourceMappingURL=App.css.map */
