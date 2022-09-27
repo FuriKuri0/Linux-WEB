@@ -1,0 +1,47 @@
+.HistogramChart {
+    width: 90%;
+    overflow: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    // background-color: red;
+
+    ul {
+        margin-left: 30vw;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            text-align: center;
+        }
+
+        .EachHistogram {
+            margin-left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        .single {
+
+            .EachHistogram {
+                background-color: rgb(0, 125, 82);
+                width: 2.5vw;
+            }
+
+            color: rgb(0, 125, 82);
+        }
+
+        .double {
+            .EachHistogram {
+                background-color: rgb(255, 141, 26);
+                width: 2.5vw;
+
+            }
+
+            color: rgb(255, 141, 26);
+        }
+    }
+}
+
+.HistogramChart::-webkit-scrollbar {
+    height: 0;
+}

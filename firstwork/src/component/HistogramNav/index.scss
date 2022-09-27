@@ -1,0 +1,29 @@
+.HistogramNav {
+    width: 100vw;
+    overflow: auto;
+
+    ul {
+        width: 150vw;
+        display: flex;
+        // overflow: auto;
+        justify-content: space-around;
+
+        li {
+            font-size: 5vw;
+            margin: 0 10px;
+            opacity: 1;
+            background: rgba(229, 229, 229, 1);
+            transition: all .5s;
+        }
+
+        .litowhite {
+            background: white;
+            color: green;
+        }
+    }
+
+}
+
+.HistogramNav::-webkit-scrollbar {
+    height: 0;
+}
