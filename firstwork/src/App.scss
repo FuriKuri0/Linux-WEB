@@ -17,12 +17,49 @@ body {
         height: 0;
     }
 
-    .HomeComponent {
-        height: 60vh;
-
-        ul li {
-            height: 7vh;
+    .Home {
+        .border {
+            height: 62vh;
+            width: 96vh;
         }
+        .HomeComponent {
+            height: 60vh;
+    
+            ul li {
+                height: 7vh;
+            }
+        }
+        .fuzhu {
+            bottom: 25vh;
+        }
+    }
+
+    .setting {
+        padding-top: 50px;
+    }
+
+    .UserComponent {
+        padding-top: 50px;
+    }
+
+    .TSC {
+        padding-top: 50px;
+
+    }
+
+    .Chart {
+        padding-top: 50px;
+
+    }
+
+    .Record {
+        padding-top: 50px;
+
+    }
+
+    .Warning {
+        padding-top: 50px;
+
     }
 }
 

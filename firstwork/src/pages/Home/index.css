@@ -1,0 +1,29 @@
+.Home .border {
+  position: absolute;
+  z-index: 3;
+  bottom: 9vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 40vh;
+  border-radius: 10px;
+  border: 2px solid #008a5a;
+  background-color: transparent;
+}
+
+.Home .changeBtn {
+  position: absolute;
+  z-index: 4;
+  background-color: transparent;
+  left: 87%;
+  top: 62%;
+}
+
+.Home .changeBtn img {
+  width: 8vw;
+}
+
+.Home .changeBtn:last-child {
+  left: 3%;
+  top: 62%;
+}
