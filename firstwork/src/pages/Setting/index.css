@@ -1,0 +1,20 @@
+.setting {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 20px 0;
+  background-color: rgb(247, 247, 247);
+}
+.setting .body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 88%;
+  margin: 0 0 30px 0;
+  background-color: #fff;
+}
+.setting .body .SettingComponent:nth-of-type(3) .box-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}/*# sourceMappingURL=index.css.map */

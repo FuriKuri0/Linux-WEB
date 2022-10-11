@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './index.scss'
 import HomeComponent from '../../component/HomeComponent'
+import axios from 'axios'
 export default function Home() {
     const [count, setCount] = React.useState(1)
     const next = () => {
@@ -9,7 +10,9 @@ export default function Home() {
     const last = () => {
         setCount(count !== -1 ? count - 1 : 1)
     }
+    useEffect(() => {
 
+    }, [])
     const setArr = [{ 'A相电流(A):': '-1.$' }, { 'B相电流(A):': '-1.$' }, { 'C相电流(A):': '-1.$' }, { '无功(kVar):': '0.0' },]
     const fuArr = [{ '电流(A):': '0.0' }, { '畸变率Thdi:': '0.0%' }, { '功因(DPF)': '0.00' }, { '无功(kVar):': '0.0' },]
     const eleArr = [{ '电流(A):': '0.0' }, { '畸变率Thdi:': '0.0%' }, { '功因(DPF)': '0.00' }, { '无功(kVar):': '0.0' },]

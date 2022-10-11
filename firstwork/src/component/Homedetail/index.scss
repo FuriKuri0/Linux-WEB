@@ -15,7 +15,13 @@
         justify-content: space-around;
 
         li {
+            width: 20px;
             display: flex;
+        }
+
+        li:first-child {
+            width: 100px;
+            // margin: 0 20px;
         }
     }
 }

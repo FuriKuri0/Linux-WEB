@@ -1,7 +1,31 @@
 .WarningBottom {
+    .WarningMain {
+        display: flex;
+        justify-content: space-around;
+
+        .column {
+            // width: 30px;
+            display: flex;
+
+            ul {
+                display: block !important;
+
+                li {
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+
+    }
+
+
+
+
+
     margin: 30px 0;
     width: 95%;
-    height: 50vh;
     background: rgb(246, 245, 245);
     border: 1px solid rgba(166, 166, 166, 1);
 }

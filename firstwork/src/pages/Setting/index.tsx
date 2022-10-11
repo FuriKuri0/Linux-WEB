@@ -2,7 +2,6 @@ import React from 'react'
 import './index.scss'
 import MyButton from '../../component/MyButton'
 import SettingComponent from '../../component/SettingComponent'
-import Histogram from '../Histogram'
 
 export default function Setting() {
     // 固定设置
@@ -30,7 +29,6 @@ export default function Setting() {
                     <SettingComponent setting={thirdSetting} />
                 </div>
             </div>
-            <Histogram/>
         </>
     )
 }

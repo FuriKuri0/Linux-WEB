@@ -42,4 +42,7 @@ body {
   .UserComponent2 .right .head:nth-child(n+2) li {
     margin: 2.9vh 3vw;
   }
+  .HistogramChart ul {
+    margin-left: 0vw;
+  }
 }/*# sourceMappingURL=App.css.map */

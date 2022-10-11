@@ -9,6 +9,7 @@ $height: 43vh;
     position: relative;
     width: 100vw;
     height: $height;
+    // background: pink;
     overflow: hidden;
 
 
@@ -46,7 +47,7 @@ $height: 43vh;
     }
 
     .bgImg {
-        width: 120%;
+        height: calc($height - 75px);
     }
 
     .round {

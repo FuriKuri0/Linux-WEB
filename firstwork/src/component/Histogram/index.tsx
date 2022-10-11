@@ -10,7 +10,6 @@ export default function Histogram() {
             <div className='HistogramChartBox'>
                 <HistogramChart />
                 <span style={{ marginLeft: '12%', color: 'green' }}>_______________________________________________</span>
-
                 <HistogramChart />
             </div>
         </div>

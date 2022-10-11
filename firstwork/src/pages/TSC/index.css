@@ -1,0 +1,101 @@
+.TSC {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 88%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.TSC .title {
+  width: 100%;
+  text-align: left;
+}
+.TSC .TSCParam,
+.TSC .status,
+.TSC .group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 15px 0;
+}
+.TSC .TSCParam .TSC-content-container,
+.TSC .status .TSC-content-container,
+.TSC .group .TSC-content-container {
+  width: 48%;
+  padding: 5px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+.TSC .TSCParam .TSC-content-container .content,
+.TSC .status .TSC-content-container .content,
+.TSC .group .TSC-content-container .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+.TSC .TSCParam .TSC-content-container .title,
+.TSC .status .TSC-content-container .title,
+.TSC .group .TSC-content-container .title {
+  color: rgb(0, 125, 82);
+  margin: 0 0 10px 0;
+}
+.TSC .TSCParam .TSC-content-container .text-warning,
+.TSC .status .TSC-content-container .text-warning,
+.TSC .group .TSC-content-container .text-warning {
+  color: rgb(212, 48, 48);
+}
+.TSC .TSCParam .TSC-content-container .bgc-warning,
+.TSC .status .TSC-content-container .bgc-warning,
+.TSC .group .TSC-content-container .bgc-warning {
+  background-color: rgb(255, 235, 59);
+}
+.TSC .TSCParam button,
+.TSC .status button,
+.TSC .group button {
+  width: 60px;
+  height: 35px;
+  font-size: 16px;
+}
+.TSC .TSCParam .MyInputNumber .ant-input-number,
+.TSC .status .MyInputNumber .ant-input-number,
+.TSC .group .MyInputNumber .ant-input-number {
+  width: 61px;
+  height: 35px;
+}
+.TSC .TSCParam .TSC-content-container .content .text {
+  width: 80px;
+}
+.TSC .TSCParam .TSC-content-container .content input {
+  font-size: 14px;
+}
+.TSC .status {
+  padding: 10px 0 20px 0;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  background-color: #fff;
+}
+.TSC .status .title {
+  margin: 0;
+  color: rgb(0, 125, 82);
+  text-align: center;
+}
+.TSC .status .TSC-content-container {
+  width: 25%;
+  border: none;
+}
+.TSC .group .TSC-content-container {
+  width: 100%;
+  padding: 15px 0 30px 0;
+}
+.TSC .group .TSC-content-container .content {
+  width: 85%;
+}
+.TSC .group button {
+  width: 75px;
+}/*# sourceMappingURL=index.css.map */
