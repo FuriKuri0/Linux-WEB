@@ -1,10 +1,12 @@
 import React from 'react'
 import './index.scss'
 import Line from '../Line'
-export default function WaveComponent() {
+type Props = { type: number }
+
+export default function WaveComponent({ type }: Props) {
     return (
         <div className='WaveComponent'>
-            <Line />
+            <Line type={type} />
         </div>
     )
 }

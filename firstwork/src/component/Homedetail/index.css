@@ -14,5 +14,9 @@
   justify-content: space-around;
 }
 .Homedetail ul li {
+  width: 20px;
   display: flex;
+}
+.Homedetail ul li:first-child {
+  width: 100px;
 }/*# sourceMappingURL=index.css.map */

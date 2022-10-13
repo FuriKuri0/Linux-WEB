@@ -3,8 +3,8 @@ import { Modal } from 'antd';
 import React, { useState, useEffect } from 'react'
 import './index.scss'
 
-type Props = { config?: Array<config> }
-type config = { background: string, text: string }
+type Props = { config?: Array<config>, point?: number, changeData?: any, setChangeData?: any }
+type config = { background: string, text: string, value?: number }
 // 按钮组件 供四种状态 默认为白底绿字
 export default function MyButton(props?: Props) {
 
@@ -62,10 +62,20 @@ export default function MyButton(props?: Props) {
   // 点击事件
   function handleClick() {
     if (i !== type.length - 1) {
+      if (props?.point) {
+        let data = props?.changeData
+        data[props?.point].value = type[i + 1].value
+        props?.setChangeData(data)
+      }
       setColor(type[i + 1].background);
       setText(type[i + 1].text);
       setI(i + 1);
     } else {
+      if (props?.point) {
+        let data = props?.changeData
+        data[props?.point].value = type[0].value
+        props?.setChangeData(data)
+      }
       setColor(type[0].background);
       setText(type[0].text);
       setI(0)

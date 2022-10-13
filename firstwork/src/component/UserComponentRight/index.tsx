@@ -10,7 +10,7 @@ export default function UserComponentRight({ data }: Props) {
     const count = [1, 2, 3, 4, 5, 6]
     return (
         <div className='right'>
-            <ul className='head'>
+            <ul className='head first'>
                 <li>M1</li>
                 <li>M2</li>
                 <li>M3</li>

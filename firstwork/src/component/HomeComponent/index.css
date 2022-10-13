@@ -13,6 +13,7 @@
   padding-top: 15px;
   color: rgb(5, 86, 58);
 }
+
 .HomeComponent ul li {
   position: relative;
   font-size: 4vw;
@@ -22,11 +23,13 @@
   width: 100%;
   margin-top: 18px;
 }
+
 .HomeComponent ul li div:last-child {
   position: absolute;
   top: 0px;
   left: 74%;
 }
+
 .HomeComponent .title {
   width: 100%;
   text-align: center;
@@ -60,6 +63,7 @@
   border-radius: 5vw;
   background-color: rgb(39, 184, 39);
 }
+
 .fuzhu ul li {
   font-size: 2vw;
   display: flex;
@@ -76,4 +80,6 @@
 
 .fuzhuRight {
   left: 77%;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */

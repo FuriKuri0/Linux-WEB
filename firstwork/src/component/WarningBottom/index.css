@@ -3,4 +3,18 @@
   width: 95%;
   background: rgb(246, 245, 245);
   border: 1px solid rgb(166, 166, 166);
+}
+.WarningBottom .WarningMain {
+  display: flex;
+  justify-content: space-around;
+}
+.WarningBottom .WarningMain .column {
+  display: flex;
+}
+.WarningBottom .WarningMain .column ul {
+  display: block !important;
+}
+.WarningBottom .WarningMain .column ul li {
+  text-align: center;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=index.css.map */

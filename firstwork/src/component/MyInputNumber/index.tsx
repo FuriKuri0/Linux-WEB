@@ -3,7 +3,7 @@ import { InputNumber, Popover, Space } from 'antd'
 import React, { useEffect, useRef, useState } from 'react'
 import './index.scss'
 
-type Props = { type?: string, tips?: boolean, defaultValue?: string }
+type Props = { type?: string, tips?: boolean, defaultValue?: string, changeData?: any, setChangeData?: any }
 
 export default function MyInputNumber(props?: Props) {
     const type: string | undefined = props?.type;
@@ -23,6 +23,26 @@ export default function MyInputNumber(props?: Props) {
     // 回车事件
     const handleEnter = () => {
         blurRef?.current?.blur();
+    }
+    const handleChange = (v: any) => {
+        switch (type) {
+            case 'parallel': {
+                let data = props?.changeData
+                data[0].value = v
+                props?.setChangeData(data)
+            } break;
+            case 'acting': {
+                let data = props?.changeData
+                data[1].value = v
+                props?.setChangeData(data)
+            } break;
+            case 'CTRatio': {
+                let data = props?.changeData
+                data[3].value = v
+                props?.setChangeData(data)
+            } break;
+        }
+
     }
     switch (type) {
         case 'parallel': {
@@ -125,6 +145,7 @@ export default function MyInputNumber(props?: Props) {
                     onBlur={(Event) => handleBlur(Event)}
                     onPressEnter={handleEnter}
                     ref={blurRef}
+                    onChange={(v) => handleChange(v)}
                 />
             </Space>
             {!tips ? <Popover className='after' content={<Space size='large'><span>{`最小: ${min}`}</span><span>{`最大: ${max}`}</span></Space>} trigger='click'><QuestionCircleOutlined /></Popover> : ''}

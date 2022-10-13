@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import './index.scss'
 import HomeComponent from '../../component/HomeComponent'
 import axios from 'axios'
+import jiantou from '../../assets/images/right.png'
 export default function Home() {
     const [count, setCount] = React.useState(1)
     const next = () => {
@@ -22,8 +23,8 @@ export default function Home() {
             <HomeComponent where={count} which='电网' data={eleArr} />
             <HomeComponent where={count === 0 ? 1 : count === 1 ? -1 : 0} which='设备' data={setArr} />
             <HomeComponent where={count === 0 ? -1 : count === 1 ? 0 : 1} which='负载' data={fuArr} />
-            <button className='changeBtn' onClick={next}><img src="https://img.js.design/assets/img/63228fe609231791d1bb5790.png#ef3760511e290f0ed3ed3b328a5f4d77" alt="" /></button>
-            <button className='changeBtn' onClick={last}><img style={{ transform: 'rotateY(180deg)' }} src="https://img.js.design/assets/img/63228fe609231791d1bb5790.png#ef3760511e290f0ed3ed3b328a5f4d77" alt="" /></button>
+            <button className='changeBtn' onClick={next}><img src={jiantou} alt="" /></button>
+            <button className='changeBtn' onClick={last}><img style={{ transform: 'rotateY(180deg)' }} src={jiantou} alt="" /></button>
         </div>
     )
 }

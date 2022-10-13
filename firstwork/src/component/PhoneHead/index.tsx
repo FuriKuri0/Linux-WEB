@@ -3,6 +3,11 @@ import './index.scss'
 import Dropdown from '../Dropdown'
 import Dlzc from '../Dlzc'
 import { Context } from '../../App'
+import bg from '../../assets/images/bg.jpg'
+import round from '../../assets/images/round.png'
+import Dlzcbg from '../../assets/images/dlzc.png'
+import top from '../../assets/images/top.png'
+
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 export default function PhoneHead() {
     const { maskClick, setMask, setMaskClick, menu } = useContext<context>(Context)
@@ -35,18 +40,18 @@ export default function PhoneHead() {
     }, [maskClick])
     return (
         <>
-            <Dlzc show={showdl} />
+            <Dlzc show={showdl} setMask={setMask} setMaskClick={setMaskClick} setShowdl={setShowdl} />
             <div className='PhoneHead'>
                 <div className='head'>
                     <Dropdown nav={arr} />
-                    <img src="https://img.js.design/assets/img/631c3bf789787ade83ae6420.png#455cc286a298b86f88c1557f1501eb9f" alt="" />
-                    <img onClick={dlzc} src="https://img.js.design/assets/img/6321f08f0e0d177adb797910.png#660a6248897ac3a552a4a5fd08414698" alt="" />
+                    <img src={top} alt="" />
+                    <img onClick={dlzc} src={Dlzcbg} alt="" />
                 </div>
                 <i>静止无功发射器<br />Static reactive power transmitter</i>
-                <img className='bgImg' src="https://img.js.design/assets/img/6320856d7c2abf0a01aecf86.jpg#a9a37db5f27a3126d0a9769dd14b4d00" alt="" />
+                <img className='bgImg' src={bg} alt="" />
                 <div className='round'></div>
                 <div className='round'></div>
-                <div className='round'><img src="https://img.js.design/assets/img/6321ebe141250db0945f6b7f.png#f3829f67611cf5a66e7b0f19148e492b" alt="" /></div>
+                <div className='round'><img src={round} alt="" /></div>
                 <div className='root'><div>{menu}</div><div>{time}</div></div>
                 <div style={{ position: 'absolute', width: "100vw", background: 'white', textAlign: 'center', bottom: '0px', fontSize: '3.5vw' }}>待机</div>
             </div>

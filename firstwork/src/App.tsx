@@ -19,7 +19,7 @@ ConfigProvider.config({
   },
 });
 
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
+type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 export const Context = createContext<context>()
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
   const [load, setLoad] = React.useState(false);
   const [mask, setMask] = React.useState(false)
   const [maskClick, setMaskClick] = React.useState(false)
+  const [login, setLogin] = React.useState(false)
   const cancelMask = () => {
     setMaskClick(true)
   }
@@ -64,7 +65,7 @@ function App() {
       {/* 黑幕 */}
       {mask ? <div onClick={cancelMask} style={{ position: 'absolute', zIndex: '999', width: '100vw', height: '100vh', background: 'rgba(0,0,0,.3)' }}></div> : ''}
       {/* 状态管理：加载中 黑幕*/}
-      <Context.Provider value={{ setLoad, setMask, maskClick, setMaskClick, menu }}>
+      <Context.Provider value={{ login, setLogin, setLoad, setMask, maskClick, setMaskClick, menu }}>
         {type === 'pc' ?
           <>
             <Head kind='pc' />

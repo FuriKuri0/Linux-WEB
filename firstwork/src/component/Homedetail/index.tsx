@@ -28,6 +28,7 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
+
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
             { '电流 I(A)': [list[12].value, list[14].value, list[16].value, list[34].value] },
@@ -50,8 +51,9 @@ export default function Homedetail({ className, type }: Props) {
                 'Content-Type': 'application/json',
             },
             method: 'GET',
-            url: 'http://192.168.10.1/cgi-bin/main.cgi?type=1&point=1&status=10&value=10',
+            url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
+
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
             { '电流 I(A)': [list[18].value, list[21].value, list[24].value, list[35].value] },
@@ -80,6 +82,7 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
+
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
             { '电压 U(V)': [list[0].value, list[1].value, list[2].value, '0.0'] },
