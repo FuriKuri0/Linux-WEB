@@ -45,12 +45,10 @@ export default function DemoLine({ type }: Props) {
         // }
         let time = 1;
         let dataArr: any = []
-        setInterval(() => {
+        let timer = setInterval(() => {
             getData(time++, dataArr)
             if (window.location.href.split('/')[window.location.href.split('/').length - 1] !== 'chart') {
-                for (let i = 0; i < 1000000; i++) {
-                    clearInterval(i)
-                }
+                clearInterval(timer)
             }
 
         }, 1000)

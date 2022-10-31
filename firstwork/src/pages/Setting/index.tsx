@@ -12,7 +12,7 @@ const text = '确定更新数据吗？';
 type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 
 
-type Object = { point: number, value: number }
+type Object = { point: number, value: number, type?: number, change?: number }
 
 export default function Setting() {
     const { login, setLogin } = useContext<context>(Context)
@@ -38,33 +38,76 @@ export default function Setting() {
 
     const confirm = () => {
         console.log(changeData, 'changeData');
-        axios({
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'POST',
-            url: 'http://192.168.10.1/cgi-bin/main.cgi',
-            data: { type: 2, list: changeData }
-        }).then(response => {
-            if (response.data === 1) {
-                Alert('修改成功')
-                console.log(response, 'response');
-
-            } else {
-                Alert('修改失败！', 2)
+        let di: any = []
+        let ai: any = []
+        let updateData: any = []
+        changeData.map((v, i) => {
+            if (v.change) {
+                if (v.type === 1) {
+                    di.push({ point: v.point, value: v.value })
+                } else {
+                    ai.push({ point: v.point, value: v.value })
+                }
             }
 
+            updateData.push({ point: v.point, value: v.value, type: v.type, change: 0 })
+        })
+        console.log('AO', ai, 'DO', di)
+        if (ai.length > 0) {
+            axios({
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                url: 'http://192.168.10.1/cgi-bin/main.cgi',
+                data: { type: 2, list: ai }
+            }).then(response => {
+                if (response.data === 1) {
+                    Alert('AO修改成功')
+                    console.log(response, 'response');
 
-        }, error => {
-            console.log(error);
+                } else {
+                    Alert('AO修改失败！', 2)
+                }
+
+
+            }, error => {
+                console.log(error);
+            }
+            )
         }
-        )
+        if (di.length !== 0) {
+            axios({
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                url: 'http://192.168.10.1/cgi-bin/main.cgi',
+                data: { type: 1, list: di }
+            }).then(response => {
+                if (response.data === 1) {
+                    Alert('DO修改成功')
+                    console.log(response, 'response');
+
+                } else {
+                    Alert('DO修改失败！', 2)
+                }
+
+
+            }, error => {
+                console.log(error);
+            }
+            )
+        }
+        setChangeData(updateData)
+
+
     };
 
     // 固定设置
     const firstSetting = [
         { name: '并联路数', id: 'parallel' },
-        { name: '目标因功', id: 'acting' },
+        { name: '目标功率因素', id: 'acting' },
         { name: 'CT位置', id: 'CTPosition' },
         { name: 'CT变比', id: 'CTRatio' }];
     const secondSetting = [
