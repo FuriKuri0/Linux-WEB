@@ -29,16 +29,20 @@ export default function MyInputNumber(props?: Props) {
             case 'parallel': {
                 let data = props?.changeData
                 data[0].value = v
+                data[0].change = 1
                 props?.setChangeData(data)
             } break;
             case 'acting': {
                 let data = props?.changeData
                 data[1].value = v
+                data[1].change = 1
+
                 props?.setChangeData(data)
             } break;
             case 'CTRatio': {
                 let data = props?.changeData
                 data[3].value = v
+                data[3].change = 1
                 props?.setChangeData(data)
             } break;
         }

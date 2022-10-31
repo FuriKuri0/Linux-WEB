@@ -64,7 +64,12 @@ export default function MyButton(props?: Props) {
     if (i !== type.length - 1) {
       if (props?.point) {
         let data = props?.changeData
-        data[props?.point].value = type[i + 1].value
+        if (props?.point !== 2) {
+          data[props?.point].value = type[i + 1].value
+        } else {
+          data[props?.point].value = type[i + 1].value ? 48 : 32
+        }
+        data[props?.point].change = 1
         props?.setChangeData(data)
       }
       setColor(type[i + 1].background);
@@ -73,7 +78,14 @@ export default function MyButton(props?: Props) {
     } else {
       if (props?.point) {
         let data = props?.changeData
-        data[props?.point].value = type[0].value
+        if (props?.point !== 2) {
+          data[props?.point].value = type[0].value
+        } else {
+          data[props?.point].value = type[0].value ? 48 : 32
+        }
+
+
+        data[props?.point].change = 1
         props?.setChangeData(data)
       }
       setColor(type[0].background);

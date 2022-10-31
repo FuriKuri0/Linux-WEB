@@ -31,8 +31,8 @@ export default function Homedetail({ className, type }: Props) {
 
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
-            { '电流 I(A)': [list[12].value, list[14].value, list[16].value, list[34].value] },
-            { '视在功率 S(kVA)': [list[13].value, list[15].value, list[17].value, '0.0'] },
+            { '电流 I(A)': [list[7].value / 32, list[8].value / 32, list[9].value / 32, list[10].value / 32] },
+            { '视在功率 S(kVA)': [list[42].value / 128, list[43].value / 128, list[44].value / 128, '0.0'] },
             ]
             setDetailData(data)
             setLoad(false)
@@ -56,13 +56,13 @@ export default function Homedetail({ className, type }: Props) {
 
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
-            { '电流 I(A)': [list[18].value, list[21].value, list[24].value, list[35].value] },
-            { '畸变率 Thdi(%)': [list[30].value, list[31].value, list[32].value, '0.0'] },
-            { '基波功因 DPF': [list[46].value, list[49].value, list[52].value, '0.0'] },
-            { '功因 PF': [list[47].value, list[50].value, list[53].value, '0.0'] },
-            { '有功功率 P(kW)': [list[19].value, list[22].value, list[25].value, '0.0'] },
-            { '无功功率 Q(kVar)': [list[20].value, list[23].value, list[26].value, '0.0'] },
-            { '视在功率 S(kVA)': [list[45].value, list[48].value, list[51].value, '0.0'] },
+            { '电流 I(A)': [list[11].value * 5 / 32, list[12].value * 5 / 32, list[13].value * 5 / 32, list[14].value * 5 / 32] },
+            { '畸变率 Thdi(%)': [list[21].value * 100 / 4096, list[22].value * 100 / 4096, list[23].value * 100 / 4096, '0.0'] },
+            { '基波功因 DPF': [list[48].value / 4096, list[49].value / 4096, list[50].value / 4096, '0.0'] },
+            { '功因 PF': [list[54].value / 4096, list[55].value / 4096, list[56].value / 4096, '0.0'] },
+            { '有功功率 P(kW)': [list[39].value * 5 / 128, list[40].value * 5 / 128, list[41].value * 5 / 128, '0.0'] },
+            { '无功功率 Q(kVar)': [list[36].value * 5 / 128, list[37].value * 5 / 128, list[38].value * 5 / 128, '0.0'] },
+            { '视在功率 S(kVA)': [list[33].value * 5 / 128, list[34].value * 5 / 128, list[35].value * 5 / 128, '0.0'] },
             ]
             setDetailData(data)
             setLoad(false)
@@ -85,15 +85,15 @@ export default function Homedetail({ className, type }: Props) {
 
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
-            { '电压 U(V)': [list[0].value, list[1].value, list[2].value, '0.0'] },
-            { '畸变率 Thdv(%)': [list[54].value, list[55].value, list[56].value, '0.0%'] },
-            { '电流 I(A)': [list[3].value, list[4].value, list[5].value, list[33].value] },
-            { '畸变率 Thdi(%)': [list[27].value, list[28].value, list[29].value, '0.0'] },
-            { '基波功因 DPF': [list[37].value, list[40].value, list[43].value, '0.0'] },
-            { '功因 PF': [list[38].value, list[41].value, list[44].value, '0.0'] },
-            { '有功功率 P(kW)': [list[6].value, list[8].value, list[10].value, '0.0'] },
-            { '无功功率 Q(kVar)': [list[7].value, list[9].value, list[11].value, '0.0'] },
-            { '视在功率 S(kVA)': [list[36].value, list[39].value, list[42].value, '0.0'] },
+            { '电压 U(V)': [list[0].value / 16, list[1].value / 16, list[2].value / 16, '0.0'] },
+            { '畸变率 Thdv(%)': [list[15].value * 100 / 4096, list[16].value * 100 / 4096, list[17].value * 100 / 4096, '0.0%'] },
+            { '电流 I(A)': [list[3].value * 5 / 32, list[4].value * 5 / 32, list[5].value * 5 / 32, list[6].value * 5 / 32] },
+            { '畸变率 Thdi(%)': [list[18].value * 100 / 4096, list[19].value * 100 / 4096, list[20].value * 100 / 4096, '0.0'] },
+            { '基波功因 DPF': [list[45].value / 4096, list[46].value / 4096, list[47].value / 4096, '0.0'] },
+            { '功因 PF': [list[51].value / 4096, list[52].value / 4096, list[53].value / 4096, '0.0'] },
+            { '有功功率 P(kW)': [list[30].value * 5 / 128, list[31].value * 5 / 128, list[32].value * 5 / 128, '0.0'] },
+            { '无功功率 Q(kVar)': [list[27].value * 5 / 128, list[28].value * 5 / 128, list[29].value * 5 / 128, '0.0'] },
+            { '视在功率 S(kVA)': [list[24].value * 5 / 128, list[25].value * 5 / 128, list[26].value * 5 / 128, '0.0'] },
             ]
             setDetailData(data)
             setLoad(false)

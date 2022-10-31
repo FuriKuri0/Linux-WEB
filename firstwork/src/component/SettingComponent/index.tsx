@@ -31,7 +31,7 @@ export default function SettingComponent(props?: Setting) {
         }).then(response => {
             let list = response.data.AiList
             let data: Data = { road: list[61].value, yinshu: list[59].value, CTp: list[68].value, CTc: list[58].value, buchang: list[57].value };
-            props?.setChangeData([list[61], list[59], list[68], list[58], list[57], { point: 2, value: 0 }, { point: 3, value: 0 }, { point: 1, value: 0 }])
+            props?.setChangeData([list[61], list[59], list[68], list[58], list[57], { point: 11, value: 0, type: 1 }, { point: 13, value: 0, type: 1 }, { point: 12, value: 0, type: 1 }])
             setData(data)
             setLoad(false)
         }, error => console.log(error)
