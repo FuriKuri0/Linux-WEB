@@ -78,9 +78,10 @@ export default function Setting() {
         { name: '相序设置', id: 'phase' },
         { name: '输出选择', id: 'output' }];
     return (
-        <><Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-            <div className='upload'><img src={upload} alt="" /></div>
-        </Popconfirm>
+        <>
+            <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
+                <div className='upload'><img src={upload} alt="" /></div>
+            </Popconfirm>
             {Login ? <div style={{ zIndex: '10', position: 'absolute', right: '10px', top: '33vh', width: '100px', height: '100px', background: 'rgba(0,0,0,0)' }}></div> : ''}
             <div className='setting'>
                 <div className="body">

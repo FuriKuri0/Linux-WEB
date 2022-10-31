@@ -42,6 +42,53 @@ body {
 
     .UserComponent {
         padding-top: 50px;
+        .left {
+            padding-bottom: 3vh;
+        }
+        .right {
+            .head {
+                justify-content: space-around;
+                width: 130vw;
+                margin-bottom: 5.4vh;
+                li {
+                    font-size: 3vw;
+                    margin: 0 3.5vw;
+                }
+                li:last-child {
+                    margin-right: 3vw!important;
+                }
+                .MyInputNumber {
+                    font-size: 18px;
+                }
+            }
+            .first {
+                margin-bottom: 0;
+            }
+            .head:last-child li {
+                margin: 0;
+            }
+            .last:last-child li {
+                margin-right: 0!important;
+            }
+        }
+    }
+
+    .UserComponent2 {
+        padding-bottom: 70px;
+        .UserComponent {
+            .right {
+                padding-top: 1.5vh;
+                .head {
+                    margin-bottom: 3.5vh;
+                }
+                .head:last-child li {
+                    margin: 2.9vh 3vw!important;
+                }
+                .first {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 
     .TSC {

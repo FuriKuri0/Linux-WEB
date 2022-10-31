@@ -1,6 +1,6 @@
 import 'antd/dist/antd.variable.min.css';
 import 'antd/dist/antd.min.css'
-import React from 'react';
+import React, { useRef } from 'react';
 import { useRoutes } from 'react-router-dom'
 import { Spin, ConfigProvider } from 'antd';
 import routes from './routes'
@@ -54,6 +54,7 @@ function App() {
       case 'warning': setMenu('告警'); break;
     }
   }, [window.location.href])
+  
   return (
     <>
       {/* 加载中 */}

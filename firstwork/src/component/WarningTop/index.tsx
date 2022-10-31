@@ -18,7 +18,7 @@ export default function WarningTop({ arr }: Props) {
     // const data = [
     //     { text: '非紧急停机', red: true },//非紧急停机 紧急停机
     //     { text: '装置正常', red: false },//装置正常 装置故障
-    //     { text: '装置待机', red: false },//装置待机 电阻软起，装置延时，控制软起，运行模式
+    //     { text: '装置待机', red: false },//装置待机 电阻软起,装置延时,控制软起,运行模式
     //     { text: '试运授权', red: false },
     //     { text: '长期运行', red: false },//长期运行 试运行中
     // ]

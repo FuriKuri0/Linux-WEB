@@ -33,7 +33,7 @@ export default function UserComponentRight({ data }: Props) {
                     })}
                 </ul>
             ))}
-            <ul className='head'>
+            <ul className='head last'>
                 <li><div></div></li>
                 <li><div></div></li>
                 <li><div></div></li>

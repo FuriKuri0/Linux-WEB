@@ -7,6 +7,8 @@ import MyInputNumber from '../MyInputNumber'
 import MyConfirmButton from '../MyConfirmButtom'
 import axios from 'axios'
 import { Context } from '../../App'
+import theFirstVideo from '../../assets/videos/one.mp4'
+import photo from '../../assets/images/bg.jpg'
 
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 type Setting = { changeData: Array<object>, setChangeData: Function, setting: any };

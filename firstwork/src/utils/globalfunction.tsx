@@ -107,7 +107,7 @@ export const Axios = (type: string, url: string, data?: object, setLoad?: Functi
           if (typeof setError === 'function') {
             setError(1)
           }
-          Alert('异常错误，可能是服务器问题', 0, () => {
+          Alert('异常错误,可能是服务器问题', 0, () => {
             if (typeof setFlag === 'function') {
               setFlag(1)
             }

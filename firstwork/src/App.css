@@ -4,7 +4,7 @@ body {
   overflow: hidden;
 }
 
-@media screen and (min-aspect-ratio: 1/1) {
+@media screen and (min-aspect-ratio: 1 / 1) {
   .bgImg {
     display: none;
   }
@@ -30,6 +30,48 @@ body {
   .UserComponent {
     padding-top: 50px;
   }
+  .UserComponent .left {
+    padding-bottom: 3vh;
+  }
+  .UserComponent .right .head {
+    justify-content: space-around;
+    width: 130vw;
+    margin-bottom: 5.4vh;
+  }
+  .UserComponent .right .head li {
+    font-size: 3vw;
+    margin: 0 3.5vw;
+  }
+  .UserComponent .right .head li:last-child {
+    margin-right: 3vw !important;
+  }
+  .UserComponent .right .head .MyInputNumber {
+    font-size: 18px;
+  }
+  .UserComponent .right .first {
+    margin-bottom: 0;
+  }
+  .UserComponent .right .head:last-child li {
+    margin: 0;
+  }
+  .UserComponent .right .last:last-child li {
+    margin-right: 0 !important;
+  }
+  .UserComponent2 {
+    padding-bottom: 70px;
+  }
+  .UserComponent2 .UserComponent .right {
+    padding-top: 1.5vh;
+  }
+  .UserComponent2 .UserComponent .right .head {
+    margin-bottom: 3.5vh;
+  }
+  .UserComponent2 .UserComponent .right .head:last-child li {
+    margin: 2.9vh 3vw !important;
+  }
+  .UserComponent2 .UserComponent .right .first {
+    margin-bottom: 0;
+  }
   .TSC {
     padding-top: 50px;
   }
@@ -43,6 +85,7 @@ body {
     padding-top: 50px;
   }
 }
+
 @media screen and (min-width: 600px) {
   .ant-select-item {
     font-size: 3.5vw !important;
@@ -62,7 +105,7 @@ body {
     margin: 2.25vh 3vw;
   }
   .right .head:last-child li {
-    margin: 5.5vw 5vw 0 8vw !important;
+    margin: 5.5vw 5vw 0 8vw;
   }
   .UserComponent2 .right .head:nth-child(n+2) li {
     margin: 2.9vh 3vw;
@@ -70,4 +113,4 @@ body {
   .HistogramChart ul {
     margin-left: 0vw;
   }
-}/*# sourceMappingURL=App.css.map */
+}

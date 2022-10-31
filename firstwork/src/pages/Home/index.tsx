@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './index.scss'
 import HomeComponent from '../../component/HomeComponent'
 import axios from 'axios'
@@ -12,13 +12,31 @@ export default function Home() {
         setCount(count !== -1 ? count - 1 : 1)
     }
     useEffect(() => {
-
+        console.log('first');
+        axios({
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+            url: 'http://192.168.10.1/cgi-bin/main.cgi?type=8&point=1&status=10&value=10',
+        }).then(response => {
+            console.log(response);
+        }, error => console.log(error)
+        )
     }, [])
     const setArr = [{ 'A相电流(A):': '-1.$' }, { 'B相电流(A):': '-1.$' }, { 'C相电流(A):': '-1.$' }, { '无功(kVar):': '0.0' },]
     const fuArr = [{ '电流(A):': '0.0' }, { '畸变率Thdi:': '0.0%' }, { '功因(DPF)': '0.00' }, { '无功(kVar):': '0.0' },]
     const eleArr = [{ '电流(A):': '0.0' }, { '畸变率Thdi:': '0.0%' }, { '功因(DPF)': '0.00' }, { '无功(kVar):': '0.0' },]
+
+    const fileRef = useRef(null);
+
+    function loadFile(){
+        console.log(fileRef.current);
+      
+    }
     return (
         <div className='Home'>
+            <input type='file' ref={fileRef} onChange={loadFile} style={{zIndex:1000,margin:'100px'}}></input>
             <div className='border'></div>
             <HomeComponent where={count} which='电网' data={eleArr} />
             <HomeComponent where={count === 0 ? 1 : count === 1 ? -1 : 0} which='设备' data={setArr} />
