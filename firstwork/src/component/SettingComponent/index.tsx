@@ -9,7 +9,7 @@ import axios from 'axios'
 import { Context } from '../../App'
 
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
-type Setting = { changeData: Array<object>, setChangeData: Function, setting: any };
+type Setting = { changeData: Array<object>, setChangeData: Function, setting: any, refresh: number };
 type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string }
 export default function SettingComponent(props?: Setting) {
     const { setLoad } = useContext<context>(Context)
@@ -20,7 +20,7 @@ export default function SettingComponent(props?: Setting) {
         setting = props?.setting
     }
     const [data, setData] = useState<Data>()
-    useEffect(() => {
+    const getData = () => {
         setLoad(true)
         axios({
             headers: {
@@ -36,7 +36,10 @@ export default function SettingComponent(props?: Setting) {
             setLoad(false)
         }, error => console.log(error)
         )
-    }, [])
+    }
+    useEffect(() => {
+        getData()
+    }, [props?.refresh])
     return (
         <div className='SettingComponent'>
             <div className="box-border"></div>

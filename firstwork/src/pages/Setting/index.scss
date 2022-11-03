@@ -10,6 +10,17 @@
     right: 10px;
 }
 
+.refresh {
+    img {
+        width: 100%;
+    }
+
+    position: absolute;
+    z-index: 10;
+    width: 50px;
+    top: calc(43vh);
+    right: 10px;
+}
 
 
 .setting {

@@ -10,8 +10,11 @@ export default function WarningComponent() {
     const { setLoad } = useContext<context>(Context)
     const [arrT, setArrT] = useState<Array<number>>()
     const [arrB, setArrB] = useState<Array<number>>()
+    const [first, setFirst] = useState(true)
     const getData = () => {
-        setLoad(true)
+        if (first) {
+            setLoad(true)
+        }
         axios({
             headers: {
                 'Content-Type': 'application/json',
@@ -45,7 +48,16 @@ export default function WarningComponent() {
         )
     }
     useEffect(() => {
-        getData()
+        let timer = setInterval(() => {
+            getData()
+            if (first) {
+                setFirst(false)
+            }
+            if (window.location.href.split('/')[window.location.href.split('/').length - 1] !== 'warning') {
+                clearInterval(timer)
+            }
+        }, 1000)
+
     }, [])
     return (
         <div className='WarningComponent'>
