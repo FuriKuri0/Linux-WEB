@@ -1,16 +1,16 @@
 import 'antd/dist/antd.variable.min.css';
 import 'antd/dist/antd.min.css'
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useRoutes } from 'react-router-dom'
 import { Spin, ConfigProvider } from 'antd';
 import routes from './routes'
 import Head from './component/Head';
 import PhoneHead from './component/PhoneHead';
-
 import './App.scss';
 import './utils/globalfunction'
 import { createContext } from 'react'
 import './base.css'
+import axios from 'axios'
 
 // 自定义主题色
 ConfigProvider.config({
@@ -19,7 +19,7 @@ ConfigProvider.config({
   },
 });
 
-type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
+type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any }
 export const Context = createContext<context>()
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
   const [mask, setMask] = React.useState(false)
   const [maskClick, setMaskClick] = React.useState(false)
   const [login, setLogin] = React.useState(false)
+  const [configPoint,setConfigPoint] = useState(null);
   const cancelMask = () => {
     setMaskClick(true)
   }
@@ -54,6 +55,19 @@ function App() {
       case 'warning': setMenu('告警'); break;
     }
   }, [window.location.href])
+
+  useEffect(()=>{
+    axios({
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        method: 'GET',
+        url: 'http://192.168.10.1/cgi-bin/main.cgi?type=8&point=1&status=10&value=10',
+    }).then(response => {
+        setConfigPoint(response.data);
+    }, error => console.log(error)
+    )
+  },[]);
   
   return (
     <>
@@ -66,7 +80,7 @@ function App() {
       {/* 黑幕 */}
       {mask ? <div onClick={cancelMask} style={{ position: 'absolute', zIndex: '999', width: '100vw', height: '100vh', background: 'rgba(0,0,0,.3)' }}></div> : ''}
       {/* 状态管理：加载中 黑幕*/}
-      <Context.Provider value={{ login, setLogin, setLoad, setMask, maskClick, setMaskClick, menu }}>
+      <Context.Provider value={{ login, setLogin, setLoad, setMask, maskClick, setMaskClick, menu, configPoint }}>
         {type === 'pc' ?
           <>
             <Head kind='pc' />

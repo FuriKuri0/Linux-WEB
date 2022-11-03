@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Homedetail from '../Homedetail'
 import './index.scss'
 import { Context } from '../../App'
@@ -27,6 +27,7 @@ export default function HomeComponent({ where, which, data }: Props) {
             setMaskClick(false)
         }
     }, [maskClick])
+
     return (
         <>
             <Homedetail type={detailType} className={show ? 'Homedetail' : 'Homedetail Homedetailhide'} />

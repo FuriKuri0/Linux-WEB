@@ -4,12 +4,19 @@ import WarningBottom from '../WarningBottom'
 import axios from 'axios'
 import './index.scss'
 import { Context } from '../../App'
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any }
 
 export default function WarningComponent() {
     const { setLoad } = useContext<context>(Context)
+    const { configPoint } = useContext<context>(Context)
+    const [dataList,setDataList] = useState([]);
     const [arrT, setArrT] = useState<Array<number>>()
     const [arrB, setArrB] = useState<Array<number>>()
+
+    useEffect(()=>{
+        setDataList(configPoint?.DataList);
+    },[configPoint]);
+
     const getData = () => {
         setLoad(true)
         axios({
@@ -19,10 +26,11 @@ export default function WarningComponent() {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
+            console.log(dataList[562][`queryPoint`]);
             setLoad(false)
             let list = response.data.DiList
             let arrT = []
-            arrT[0] = list[2].value
+            arrT[0] = list[dataList[562][`queryPoint`]].value
             arrT[1] = list[1].value
             arrT[2] = 0
             arrT[3] = list[125].value
@@ -44,13 +52,17 @@ export default function WarningComponent() {
         }, error => console.log(error)
         )
     }
+
     useEffect(() => {
-        getData()
-    }, [])
+        setDataList(configPoint?.DataList);
+        if(dataList && dataList[0]){
+            getData()
+        }
+    }, [configPoint])
+
     return (
         <div className='WarningComponent'>
             <div className='title'>模块一</div>
-
             <WarningTop arr={arrT} />
             <WarningBottom arr={arrB} />
         </div>

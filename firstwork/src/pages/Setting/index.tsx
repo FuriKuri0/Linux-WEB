@@ -22,13 +22,13 @@ export default function Setting() {
     //localStorage.getItem('name')
     // localStorage.remove('name')   .claer()
     useEffect(() => {
-        console.log(localStorage.getItem('login'), 'location');
+        // console.log(localStorage.getItem('login'), 'location');
         if (localStorage.getItem('login')) {
             setLogion(0)
         }
     }, [localStorage])
     useEffect(() => {
-        console.log(login, 'login');
+        // console.log(login, 'login');
 
         if (login) {
             setLogion(0)

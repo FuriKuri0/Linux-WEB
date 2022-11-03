@@ -10,35 +10,45 @@ import { Context } from '../../App'
 import theFirstVideo from '../../assets/videos/one.mp4'
 import photo from '../../assets/images/bg.jpg'
 
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any  }
 type Setting = { changeData: Array<object>, setChangeData: Function, setting: any };
 type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string }
 export default function SettingComponent(props?: Setting) {
     const { setLoad } = useContext<context>(Context)
-
+    const { configPoint } = useContext<context>(Context)
+    const [control,setControl] = useState([]);
     // 固定设置
     let setting;
     if (Object.keys(props as Setting)[0]) {
         setting = props?.setting
     }
     const [data, setData] = useState<Data>()
+
+    useEffect(()=>{
+        setControl(configPoint?.Control);
+    },[configPoint]);
+
     useEffect(() => {
-        setLoad(true)
-        axios({
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'GET',
-            url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
-        }).then(response => {
-            let list = response.data.AiList
-            let data: Data = { road: list[61].value, yinshu: list[59].value, CTp: list[68].value, CTc: list[58].value, buchang: list[57].value };
-            props?.setChangeData([list[61], list[59], list[68], list[58], list[57], { point: 11, value: 0, type: 1 }, { point: 13, value: 0, type: 1 }, { point: 12, value: 0, type: 1 }])
-            setData(data)
-            setLoad(false)
-        }, error => console.log(error)
-        )
-    }, [])
+        if(control && control[0]){
+            setLoad(true)
+            axios({
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'GET',
+                // 1 DO 2 AO 0 查询
+                // 设置 point点 value 值 post
+                url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
+            }).then(response => {
+                let list = response.data.AiList
+                let data: Data = { road: list[control[10][`queryPoint`]].value, yinshu: list[control[8][`queryPoint`]].value, CTp: list[control[6][`queryPoint`]].value, CTc: list[control[7][`queryPoint`]].value, buchang: list[control[5][`queryPoint`]].value };
+                props?.setChangeData([list[control[10][`queryPoint`]], list[control[8][`queryPoint`]], list[control[6][`queryPoint`]], list[control[7][`queryPoint`]], list[control[5][`queryPoint`]], { point: control[3][`queryPoint`], value: 0, type: 1 }, { point: control[1][`queryPoint`], value: 0, type: 1 }, { point: control[4][`queryPoint`], value: 0, type: 1 }])
+                setData(data)
+                setLoad(false)
+            }, error => console.log(error)
+            )  
+        }
+    }, [control])
     return (
         <div className='SettingComponent'>
             <div className="box-border"></div>

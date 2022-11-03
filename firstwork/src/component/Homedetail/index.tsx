@@ -4,20 +4,26 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Context } from '../../App'
 
 type Props = { className: string, type: number }
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any }
 
 export default function Homedetail({ className, type }: Props) {
     const { setLoad } = useContext<context>(Context)
+    const { configPoint } = useContext<context>(Context)
+    const [dataList,setDataList] = useState([]);
     const [detailData, setDetailData] = React.useState<any>([{}])
-    React.useEffect(() => {
-        if (typeof type === 'number') {
+    useEffect(() => {
+        if (typeof type === 'number' && dataList && dataList[0]) {
             switch (type) {
                 case 0: getEquipmentData(); break;
                 case 1: getLoadData(); break;
                 case 2: getElectricData(); break;
             }
         }
-    }, [type])
+    }, [type,configPoint])
+
+    useEffect(()=>{
+        setDataList(configPoint?.DataList);
+    },[configPoint]);
 
     const getEquipmentData = () => {
         setLoad(true)
@@ -28,11 +34,10 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
-
-            let list = response.data.AiList
+            let list = response.data.AiList     
             let data = [{ '': ['A', 'B', 'C', 'N'] },
-            { '电流 I(A)': [list[7].value / 32, list[8].value / 32, list[9].value / 32, list[10].value / 32] },
-            { '视在功率 S(kVA)': [list[42].value / 128, list[43].value / 128, list[44].value / 128, '0.0'] },
+            { '电流 I(A)': [list[dataList[12][`queryPoint`]].value / 32, list[dataList[14][`queryPoint`]].value / 32, list[dataList[16][`queryPoint`]].value / 32, list[dataList[34][`queryPoint`]].value / 32] },
+            { '视在功率 S(kVA)': [list[dataList[13][`queryPoint`]].value / 128, list[dataList[15][`queryPoint`]].value / 128, list[dataList[17][`queryPoint`]].value / 128, '0.0'] },
             ]
             setDetailData(data)
             setLoad(false)
@@ -45,7 +50,6 @@ export default function Homedetail({ className, type }: Props) {
     }
     const getLoadData = () => {
         setLoad(true)
-
         axios({
             headers: {
                 'Content-Type': 'application/json',
@@ -53,16 +57,15 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
-
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
-            { '电流 I(A)': [list[11].value * 5 / 32, list[12].value * 5 / 32, list[13].value * 5 / 32, list[14].value * 5 / 32] },
-            { '畸变率 Thdi(%)': [list[21].value * 100 / 4096, list[22].value * 100 / 4096, list[23].value * 100 / 4096, '0.0'] },
-            { '基波功因 DPF': [list[48].value / 4096, list[49].value / 4096, list[50].value / 4096, '0.0'] },
-            { '功因 PF': [list[54].value / 4096, list[55].value / 4096, list[56].value / 4096, '0.0'] },
-            { '有功功率 P(kW)': [list[39].value * 5 / 128, list[40].value * 5 / 128, list[41].value * 5 / 128, '0.0'] },
-            { '无功功率 Q(kVar)': [list[36].value * 5 / 128, list[37].value * 5 / 128, list[38].value * 5 / 128, '0.0'] },
-            { '视在功率 S(kVA)': [list[33].value * 5 / 128, list[34].value * 5 / 128, list[35].value * 5 / 128, '0.0'] },
+            { '电流 I(A)': [list[dataList[18][`queryPoint`]].value * 5 / 32, list[dataList[21][`queryPoint`]].value * 5 / 32, list[dataList[24][`queryPoint`]].value * 5 / 32, list[dataList[35][`queryPoint`]].value * 5 / 32] },
+            { '畸变率 Thdi(%)': [list[dataList[30][`queryPoint`]].value * 100 / 4096, list[dataList[31][`queryPoint`]].value * 100 / 4096, list[dataList[32][`queryPoint`]].value * 100 / 4096, '0.0'] },
+            { '基波功因 DPF': [list[dataList[46][`queryPoint`]].value / 4096, list[dataList[49][`queryPoint`]].value / 4096, list[dataList[52][`queryPoint`]].value / 4096, '0.0'] },
+            { '功因 PF': [list[dataList[47][`queryPoint`]].value / 4096, list[dataList[50][`queryPoint`]].value / 4096, list[dataList[53][`queryPoint`]].value / 4096, '0.0'] },
+            { '有功功率 P(kW)': [list[dataList[19][`queryPoint`]].value * 5 / 128, list[dataList[22][`queryPoint`]].value * 5 / 128, list[dataList[25][`queryPoint`]].value * 5 / 128, '0.0'] },
+            { '无功功率 Q(kVar)': [list[dataList[20][`queryPoint`]].value * 5 / 128, list[dataList[23][`queryPoint`]].value * 5 / 128, list[dataList[26][`queryPoint`]].value * 5 / 128, '0.0'] },
+            { '视在功率 S(kVA)': [list[dataList[45][`queryPoint`]].value * 5 / 128, list[dataList[48][`queryPoint`]].value * 5 / 128, list[dataList[51][`queryPoint`]].value * 5 / 128, '0.0'] },
             ]
             setDetailData(data)
             setLoad(false)
@@ -82,18 +85,18 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
-
+            console.log('dataList->',dataList);
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
-            { '电压 U(V)': [list[0].value / 16, list[1].value / 16, list[2].value / 16, '0.0'] },
-            { '畸变率 Thdv(%)': [list[15].value * 100 / 4096, list[16].value * 100 / 4096, list[17].value * 100 / 4096, '0.0%'] },
-            { '电流 I(A)': [list[3].value * 5 / 32, list[4].value * 5 / 32, list[5].value * 5 / 32, list[6].value * 5 / 32] },
-            { '畸变率 Thdi(%)': [list[18].value * 100 / 4096, list[19].value * 100 / 4096, list[20].value * 100 / 4096, '0.0'] },
-            { '基波功因 DPF': [list[45].value / 4096, list[46].value / 4096, list[47].value / 4096, '0.0'] },
-            { '功因 PF': [list[51].value / 4096, list[52].value / 4096, list[53].value / 4096, '0.0'] },
-            { '有功功率 P(kW)': [list[30].value * 5 / 128, list[31].value * 5 / 128, list[32].value * 5 / 128, '0.0'] },
-            { '无功功率 Q(kVar)': [list[27].value * 5 / 128, list[28].value * 5 / 128, list[29].value * 5 / 128, '0.0'] },
-            { '视在功率 S(kVA)': [list[24].value * 5 / 128, list[25].value * 5 / 128, list[26].value * 5 / 128, '0.0'] },
+            { '电压 U(V)': [list[dataList[0][`queryPoint`]].value / 16, list[dataList[1][`queryPoint`]].value / 16, list[dataList[2][`queryPoint`]].value / 16, '0.0'] },
+            { '畸变率 Thdv(%)': [list[dataList[54][`queryPoint`]].value * 100 / 4096, list[dataList[55][`queryPoint`]].value * 100 / 4096, list[dataList[56][`queryPoint`]].value * 100 / 4096, '0.0%'] },
+            { '电流 I(A)': [list[dataList[3][`queryPoint`]].value * 5 / 32, list[dataList[4][`queryPoint`]].value * 5 / 32, list[dataList[5][`queryPoint`]].value * 5 / 32, list[dataList[33][`queryPoint`]].value * 5 / 32] },
+            { '畸变率 Thdi(%)': [list[dataList[27][`queryPoint`]].value * 100 / 4096, list[dataList[28][`queryPoint`]].value * 100 / 4096, list[dataList[29][`queryPoint`]].value * 100 / 4096, '0.0'] },
+            { '基波功因 DPF': [list[dataList[37][`queryPoint`]].value / 4096, list[dataList[40][`queryPoint`]].value / 4096, list[dataList[43][`queryPoint`]].value / 4096, '0.0'] },
+            { '功因 PF': [list[dataList[38][`queryPoint`]].value / 4096, list[dataList[41][`queryPoint`]].value / 4096, list[dataList[44][`queryPoint`]].value / 4096, '0.0'] },
+            { '有功功率 P(kW)': [list[dataList[6][`queryPoint`]].value * 5 / 128, list[dataList[8][`queryPoint`]].value * 5 / 128, list[dataList[10][`queryPoint`]].value * 5 / 128, '0.0'] },
+            { '无功功率 Q(kVar)': [list[dataList[7][`queryPoint`]].value * 5 / 128, list[dataList[9][`queryPoint`]].value * 5 / 128, list[dataList[11][`queryPoint`]].value * 5 / 128, '0.0'] },
+            { '视在功率 S(kVA)': [list[dataList[36][`queryPoint`]].value * 5 / 128, list[dataList[39][`queryPoint`]].value * 5 / 128, list[dataList[42][`queryPoint`]].value * 5 / 128, '0.0'] },
             ]
             setDetailData(data)
             setLoad(false)

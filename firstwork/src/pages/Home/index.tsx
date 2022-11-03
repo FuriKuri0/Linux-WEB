@@ -11,19 +11,6 @@ export default function Home() {
     const last = () => {
         setCount(count !== -1 ? count - 1 : 1)
     }
-    useEffect(() => {
-        console.log('first');
-        axios({
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'GET',
-            url: 'http://192.168.10.1/cgi-bin/main.cgi?type=8&point=1&status=10&value=10',
-        }).then(response => {
-            console.log(response);
-        }, error => console.log(error)
-        )
-    }, [])
     const setArr = [{ 'A相电流(A):': '-1.$' }, { 'B相电流(A):': '-1.$' }, { 'C相电流(A):': '-1.$' }, { '无功(kVar):': '0.0' },]
     const fuArr = [{ '电流(A):': '0.0' }, { '畸变率Thdi:': '0.0%' }, { '功因(DPF)': '0.00' }, { '无功(kVar):': '0.0' },]
     const eleArr = [{ '电流(A):': '0.0' }, { '畸变率Thdi:': '0.0%' }, { '功因(DPF)': '0.00' }, { '无功(kVar):': '0.0' },]
