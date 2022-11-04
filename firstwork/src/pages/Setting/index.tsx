@@ -76,6 +76,7 @@ export default function Setting() {
 
 
             }, error => {
+                Alert('网络故障！', 2)
                 console.log(error);
             }
             )
@@ -99,6 +100,7 @@ export default function Setting() {
 
 
             }, error => {
+                Alert('网络故障！', 2)
                 console.log(error);
             }
             )

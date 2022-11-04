@@ -9,7 +9,7 @@ type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMa
 export default function WarningComponent() {
     const { setLoad } = useContext<context>(Context)
     const { configPoint } = useContext<context>(Context)
-    const [dataList,setDataList] = useState([]);
+    const [dataList, setDataList] = useState([]);
     const [arrT, setArrT] = useState<Array<number>>()
     const [arrB, setArrB] = useState<Array<number>>()
     const [first, setFirst] = useState(true)
@@ -26,6 +26,7 @@ export default function WarningComponent() {
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
             setLoad(false)
+            setFirst(false)
             let list = response.data.DiList
             let arrT = []
             arrT[0] = list[dataList[562][`queryPoint`]].value
@@ -56,11 +57,8 @@ export default function WarningComponent() {
     }, [configPoint])
 
     useEffect(() => {
-        for(let i =0;i<1000;i++){
-            clearInterval(i)
-        }
         let timer = setInterval(() => {
-            if(dataList && dataList[0]){
+            if (dataList && dataList[0]) {
                 getData()
             }
             if (first) {

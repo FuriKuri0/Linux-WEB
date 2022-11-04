@@ -9,13 +9,13 @@ type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMa
 export default function Homedetail({ className, type }: Props) {
     const { setLoad } = useContext<context>(Context)
     const { configPoint } = useContext<context>(Context)
-    const [dataList,setDataList] = useState([]);
+    const [dataList, setDataList] = useState([]);
     const [detailData, setDetailData] = React.useState<any>([{}])
     const [first, setFirst] = useState(true)
     React.useEffect(() => {
-        for(let i =0;i<1000;i++){
-            clearInterval(i)
-        }
+        // for (let i = 0; i < 1000; i++) {
+        //     clearInterval(i)
+        // }
         let timer = setInterval(() => {
             if (typeof type === 'number' && dataList && dataList[0]) {
                 switch (type) {
@@ -31,11 +31,11 @@ export default function Homedetail({ className, type }: Props) {
                 clearInterval(timer)
             }
         }, 1000)
-    }, [type,configPoint])
+    }, [type, configPoint])
 
-    useEffect(()=>{
+    useEffect(() => {
         setDataList(configPoint?.DataList);
-    },[configPoint]);
+    }, [configPoint]);
 
     const getEquipmentData = () => {
         if (first) {
@@ -49,21 +49,22 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
-            let list = response.data.AiList     
+            setFirst(false)
+            let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
             { '电流 I(A)': [list[dataList[12][`queryPoint`]].value / 32, list[dataList[14][`queryPoint`]].value / 32, list[dataList[16][`queryPoint`]].value / 32, list[dataList[34][`queryPoint`]].value / 32] },
             { '视在功率 S(kVA)': [list[dataList[13][`queryPoint`]].value / 128, list[dataList[15][`queryPoint`]].value / 128, list[dataList[17][`queryPoint`]].value / 128, 0.0] },
             ]
-            data.map((v: any,i) => {
-                if(i!==0){
+            data.map((v: any, i) => {
+                if (i !== 0) {
                     for (let j in v) {
-                        v[j].map((value: any,index:any) => {
+                        v[j].map((value: any, index: any) => {
                             v[j][index] = parseFloat(value.toFixed(1))
-                            
+
                         })
                     }
                 }
-               
+
             })
 
             setDetailData(data)
@@ -88,6 +89,7 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
+            setFirst(false)
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
             { '电流 I(A)': [list[dataList[18][`queryPoint`]].value * 5 / 32, list[dataList[21][`queryPoint`]].value * 5 / 32, list[dataList[24][`queryPoint`]].value * 5 / 32, list[dataList[35][`queryPoint`]].value * 5 / 32] },
@@ -98,15 +100,15 @@ export default function Homedetail({ className, type }: Props) {
             { '无功功率 Q(kVar)': [list[dataList[20][`queryPoint`]].value * 5 / 128, list[dataList[23][`queryPoint`]].value * 5 / 128, list[dataList[26][`queryPoint`]].value * 5 / 128, 0.0] },
             { '视在功率 S(kVA)': [list[dataList[45][`queryPoint`]].value * 5 / 128, list[dataList[48][`queryPoint`]].value * 5 / 128, list[dataList[51][`queryPoint`]].value * 5 / 128, 0.0] },
             ]
-            data.map((v: any,i) => {
-                if(i!==0){
-                for (let j in v) {
-                    v[j].map((value: any,index:any) => {
-                        v[j][index] = parseFloat(value.toFixed(1))
-                        
-                    })
+            data.map((v: any, i) => {
+                if (i !== 0) {
+                    for (let j in v) {
+                        v[j].map((value: any, index: any) => {
+                            v[j][index] = parseFloat(value.toFixed(1))
+
+                        })
+                    }
                 }
-            }
             })
             setDetailData(data)
             setLoad(false)
@@ -128,7 +130,8 @@ export default function Homedetail({ className, type }: Props) {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
-            console.log('dataList->',dataList);
+            setFirst(false)
+            console.log('dataList->', dataList);
             let list = response.data.AiList
             let data = [{ '': ['A', 'B', 'C', 'N'] },
             { '电压 U(V)': [list[dataList[0][`queryPoint`]].value / 16, list[dataList[1][`queryPoint`]].value / 16, list[dataList[2][`queryPoint`]].value / 16, 0.0] },
@@ -141,18 +144,18 @@ export default function Homedetail({ className, type }: Props) {
             { '无功功率 Q(kVar)': [list[dataList[7][`queryPoint`]].value * 5 / 128, list[dataList[9][`queryPoint`]].value * 5 / 128, list[dataList[11][`queryPoint`]].value * 5 / 128, 0.0] },
             { '视在功率 S(kVA)': [list[dataList[36][`queryPoint`]].value * 5 / 128, list[dataList[39][`queryPoint`]].value * 5 / 128, list[dataList[42][`queryPoint`]].value * 5 / 128, 0.0] },
             ]
-            data.map((v: any,i) => {
-                if(i!==0){
-                for (let j in v) {
-                    v[j].map((value: any,index:any) => {
-                        v[j][index] = parseFloat(value.toFixed(1))
-                        
-                    })
+            data.map((v: any, i) => {
+                if (i !== 0) {
+                    for (let j in v) {
+                        v[j].map((value: any, index: any) => {
+                            v[j][index] = parseFloat(value.toFixed(1))
+
+                        })
+                    }
                 }
-            }
             })
-            console.log(data,'data');
-            
+            console.log(data, 'data');
+
             setDetailData(data)
             setLoad(false)
 
