@@ -10,13 +10,13 @@ import { Context } from '../../App'
 import theFirstVideo from '../../assets/videos/one.mp4'
 import photo from '../../assets/images/bg.jpg'
 
-type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any  }
+type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any }
 type Setting = { changeData: Array<object>, setChangeData: Function, setting: any, refresh: number };
-type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string }
+type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string, wugong: any, nobalance: any, xiebo: any }
 export default function SettingComponent(props?: Setting) {
     const { setLoad } = useContext<context>(Context)
     const { configPoint } = useContext<context>(Context)
-    const [control,setControl] = useState([]);
+    const [control, setControl] = useState([]);
     // 固定设置
     let setting;
     if (Object.keys(props as Setting)[0]) {
@@ -24,12 +24,13 @@ export default function SettingComponent(props?: Setting) {
     }
     const [data, setData] = useState<Data>()
 
-    useEffect(()=>{
+    useEffect(() => {
         setControl(configPoint?.Control);
-    },[configPoint]);
+    }, [configPoint]);
 
-    const getData =()=>{
-        if(control && control[0]){
+    const getData = () => {
+
+        if (control && control[0]) {
             setLoad(true)
             axios({
                 headers: {
@@ -41,18 +42,28 @@ export default function SettingComponent(props?: Setting) {
                 url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
             }).then(response => {
                 let list = response.data.AiList
-                let data: Data = { road: list[control[10][`queryPoint`]].value, yinshu: list[control[8][`queryPoint`]].value, CTp: list[control[6][`queryPoint`]].value, CTc: list[control[7][`queryPoint`]].value, buchang: list[control[5][`queryPoint`]].value };
-                props?.setChangeData([list[control[10][`queryPoint`]], list[control[8][`queryPoint`]], list[control[6][`queryPoint`]], list[control[7][`queryPoint`]], list[control[5][`queryPoint`]], { point: control[3][`queryPoint`], value: 0, type: 1 }, { point: control[1][`queryPoint`], value: 0, type: 1 }, { point: control[4][`queryPoint`], value: 0, type: 1 }])
+                let list1 = response.data.DiList
+                let data: Data = { road: list[control[10][`queryPoint`]].value, yinshu: list[control[8][`queryPoint`]].value, CTp: list[control[6][`queryPoint`]].value, CTc: list[control[7][`queryPoint`]].value, buchang: list[control[5][`queryPoint`]].value, wugong: list1[control[3][`queryPoint`]].value, nobalance: list1[control[1][`queryPoint`]].value, xiebo: list1[control[4][`queryPoint`]].value };
+                props?.setChangeData([
+                    { value: list[control[10][`queryPoint`]].value, point: control[10][`modifyPoint`], change: 0, type: 0 },
+                    { value: list[control[8][`queryPoint`]].value, point: control[8][`modifyPoint`], change: 0, type: 0 },
+                    { value: list[control[6][`queryPoint`]].value, point: control[6][`modifyPoint`], change: 0, type: 0 },
+                    { value: list[control[7][`queryPoint`]].value, point: control[7][`modifyPoint`], change: 0, type: 0 },
+                    { value: list[control[5][`queryPoint`]].value, point: control[5][`modifyPoint`], change: 0, type: 0 },
+                    { value: list1[control[3][`queryPoint`]].value, point: control[3][`modifyPoint`], change: 0, type: 1 },
+                    { value: list1[control[1][`queryPoint`]].value, point: control[1][`modifyPoint`], change: 0, type: 1 },
+                    { value: list1[control[4][`queryPoint`]].value, point: control[4][`modifyPoint`], change: 0, type: 1 },
+                ])
                 setData(data)
                 setLoad(false)
             }, error => console.log(error)
-            )  
+            )
         }
     }
 
     useEffect(() => {
         getData()
-    }, [props?.refresh,control])
+    }, [props?.refresh, control])
 
     return (
         <div className='SettingComponent'>
@@ -77,7 +88,7 @@ export default function SettingComponent(props?: Setting) {
                     {setting[1].name}
                     {
                         setting[1].id === 'acting' && data?.yinshu !== undefined ? <MyInputNumber changeData={props?.changeData} setChangeData={props?.setChangeData} defaultValue={data?.yinshu} type={setting[1].id} tips={true} /> :
-                            setting[1].id === 'idle' ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={5} config={[{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },]} /> :
+                            setting[1].id === 'idle' && data?.wugong !== undefined ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={5} config={data.wugong === '0' ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
                                 setting[1].id === 'copy' ? <MyConfirmButton father='copy' title='参数复制' content='您确定要拷贝参数吗?' text='拷贝到多路' /> : ''
                     }
                 </div>
@@ -88,7 +99,7 @@ export default function SettingComponent(props?: Setting) {
                             data?.CTp === '1' ? [{ background: 'yellow', text: '负载侧', value: 1 }, { background: 'green', text: '网侧', value: 0 }]
                                 : [{ background: 'green', text: '网侧', value: 0 }, { background: 'yellow', text: '负载侧', value: 1 },]
                         } /> :
-                            setting[2].id === 'imbalance' ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={6} config={[{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },]} /> :
+                            setting[2].id === 'imbalance' && data?.nobalance !== undefined ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={6} config={data.nobalance === '0' ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
                                 setting[2].id === 'phase' ? <MyButton config={[{ background: 'green', text: '负序' }, { background: 'yellow', text: '正序' }]} /> : ''
                     }
                 </div>
@@ -96,8 +107,8 @@ export default function SettingComponent(props?: Setting) {
                     {setting[3].name}
                     {
                         setting[3].id === 'CTRatio' && data?.CTc !== undefined ? <MyInputNumber changeData={props?.changeData} setChangeData={props?.setChangeData} defaultValue={data?.CTc} type={setting[3].id} tips={true} /> :
-                            setting[3].id === 'harmonic' ? <MyButton point={7} changeData={props?.changeData} setChangeData={props?.setChangeData} config={[{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },]} /> :
-                                <MyButton config={[{ background: 'green', text: '运行' }, { background: 'yellow', text: '正常' }]} />}
+                            setting[3].id === 'harmonic' && data?.xiebo ? <MyButton point={7} changeData={props?.changeData} setChangeData={props?.setChangeData} config={data.xiebo === '0' ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
+                                setting[3].id === 'output' ? <MyButton config={[{ background: 'green', text: '运行' }, { background: 'yellow', text: '正常' }]} /> : ''}
                 </div>
             </div>
         </div>
