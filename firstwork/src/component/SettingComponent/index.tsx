@@ -11,7 +11,7 @@ import theFirstVideo from '../../assets/videos/one.mp4'
 import photo from '../../assets/images/bg.jpg'
 
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any  }
-type Setting = { changeData: Array<object>, setChangeData: Function, setting: any };
+type Setting = { changeData: Array<object>, setChangeData: Function, setting: any, refresh: number };
 type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string }
 export default function SettingComponent(props?: Setting) {
     const { setLoad } = useContext<context>(Context)
@@ -28,7 +28,7 @@ export default function SettingComponent(props?: Setting) {
         setControl(configPoint?.Control);
     },[configPoint]);
 
-    useEffect(() => {
+    const getData =()=>{
         if(control && control[0]){
             setLoad(true)
             axios({
@@ -48,7 +48,12 @@ export default function SettingComponent(props?: Setting) {
             }, error => console.log(error)
             )  
         }
-    }, [control])
+    }
+
+    useEffect(() => {
+        getData()
+    }, [props?.refresh,control])
+
     return (
         <div className='SettingComponent'>
             <div className="box-border"></div>

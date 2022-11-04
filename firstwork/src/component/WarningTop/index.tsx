@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './index.scss'
 type Props = { arr?: Array<number> }
 type Object = { text: string, red: boolean }
-export default function WarningTop({ arr }: Props) {
+export default function WarningTop({ arr }: Props) {    
     const [data, setData] = useState<Array<Object>>()
     useEffect(() => {
         if (arr) {

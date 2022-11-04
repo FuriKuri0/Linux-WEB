@@ -12,13 +12,12 @@ export default function WarningComponent() {
     const [dataList,setDataList] = useState([]);
     const [arrT, setArrT] = useState<Array<number>>()
     const [arrB, setArrB] = useState<Array<number>>()
-
-    useEffect(()=>{
-        setDataList(configPoint?.DataList);
-    },[configPoint]);
+    const [first, setFirst] = useState(true)
 
     const getData = () => {
-        setLoad(true)
+        if (first) {
+            setLoad(true)
+        }
         axios({
             headers: {
                 'Content-Type': 'application/json',
@@ -26,28 +25,27 @@ export default function WarningComponent() {
             method: 'GET',
             url: 'http://192.168.10.1/cgi-bin/main.cgi?type=0&point=1&status=10&value=10',
         }).then(response => {
-            console.log(dataList[562][`queryPoint`]);
             setLoad(false)
             let list = response.data.DiList
             let arrT = []
             arrT[0] = list[dataList[562][`queryPoint`]].value
-            arrT[1] = list[1].value
+            arrT[1] = list[dataList[561][`queryPoint`]].value
             arrT[2] = 0
-            arrT[3] = list[125].value
-            arrT[4] = list[122].value
+            arrT[3] = list[dataList[684][`queryPoint`]].value
+            arrT[4] = list[dataList[682][`queryPoint`]].value
             setArrT(arrT)
             let arrB = []
-            arrB[0] = list[5].value
-            arrB[1] = list[3].value
-            arrB[2] = list[4].value
-            arrB[3] = list[8].value
-            arrB[4] = list[119].value
-            arrB[5] = list[141].value
-            arrB[6] = list[123].value
-            arrB[7] = list[9].value
-            arrB[8] = list[150].value
-            arrB[9] = list[7].value
-            arrB[10] = list[5].value
+            arrB[0] = list[dataList[565][`queryPoint`]].value
+            arrB[1] = list[dataList[563][`queryPoint`]].value
+            arrB[2] = list[dataList[564][`queryPoint`]].value
+            arrB[3] = list[dataList[568][`queryPoint`]].value
+            arrB[4] = list[dataList[679][`queryPoint`]].value
+            arrB[5] = list[dataList[701][`queryPoint`]].value
+            arrB[6] = list[dataList[683][`queryPoint`]].value
+            arrB[7] = list[dataList[569][`queryPoint`]].value
+            arrB[8] = list[dataList[710][`queryPoint`]].value
+            arrB[9] = list[dataList[567][`queryPoint`]].value
+            arrB[10] = list[dataList[565][`queryPoint`]].value
             setArrB(arrB)
         }, error => console.log(error)
         )
@@ -55,10 +53,24 @@ export default function WarningComponent() {
 
     useEffect(() => {
         setDataList(configPoint?.DataList);
-        if(dataList && dataList[0]){
-            getData()
-        }
     }, [configPoint])
+
+    useEffect(() => {
+        for(let i =0;i<1000;i++){
+            clearInterval(i)
+        }
+        let timer = setInterval(() => {
+            if(dataList && dataList[0]){
+                getData()
+            }
+            if (first) {
+                setFirst(false)
+            }
+            if (window.location.href.split('/')[window.location.href.split('/').length - 1] !== 'warning') {
+                clearInterval(timer)
+            }
+        }, 1000)
+    }, [dataList])
 
     return (
         <div className='WarningComponent'>

@@ -2,13 +2,17 @@ import React, { useEffect, useState, useContext } from 'react'
 import './index.scss'
 import MyButton from '../../component/MyButton'
 import SettingComponent from '../../component/SettingComponent'
-import upload from '../../assets/images/upload.png'
+import uploadImg from '../../assets/images/upload.png'
+import refreshImg from '../../assets/images/refresh.png'
+
 import { Popconfirm } from 'antd';
 import axios from 'axios'
 import { Alert } from '../../utils/globalfunction'
 import { Context } from '../../App'
 
-const text = '确定更新数据吗？';
+const uploadText = '确定上传数据吗？';
+const refreshText = '确定定值更新数据吗？';
+
 type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
 
 
@@ -21,6 +25,7 @@ export default function Setting() {
     //localStorage.setItem('name','muou')
     //localStorage.getItem('name')
     // localStorage.remove('name')   .claer()
+    const [refresh, setRefresh] = useState(0)
     useEffect(() => {
         // console.log(localStorage.getItem('login'), 'location');
         if (localStorage.getItem('login')) {
@@ -36,7 +41,7 @@ export default function Setting() {
     }, [login])
 
 
-    const confirm = () => {
+    const confirmUpload = () => {
         console.log(changeData, 'changeData');
         let di: any = []
         let ai: any = []
@@ -100,8 +105,30 @@ export default function Setting() {
             )
         }
         setChangeData(updateData)
+        setRefresh(refresh + 1)
 
+    };
+    const confirmRefresh = () => {
+        axios({
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            url: 'http://192.168.10.1/cgi-bin/main.cgi',
+            data: { type: 1, list: [{ point: 997, value: 1 }] }
+        }).then(response => {
+            if (response.data === 1) {
+                Alert('定值更新成功')
+                console.log(response, 'response');
+            } else {
+                Alert('定值更新失败!', 2)
+            }
 
+        }, error => {
+            Alert('网络故障！', 2)
+            console.log(error);
+        }
+        )
     };
 
     // 固定设置
@@ -121,16 +148,18 @@ export default function Setting() {
         { name: '相序设置', id: 'phase' },
         { name: '输出选择', id: 'output' }];
     return (
-        <>
-            <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
-                <div className='upload'><img src={upload} alt="" /></div>
+        <><Popconfirm placement="topLeft" title={uploadText} onConfirm={confirmUpload} okText="Yes" cancelText="No">
+            <div className='upload'><img src={uploadImg} alt="" /></div>
+        </Popconfirm>
+            <Popconfirm placement="topLeft" title={refreshText} onConfirm={confirmRefresh} okText="Yes" cancelText="No">
+                <div className='refresh'><img src={refreshImg} alt="" /></div>
             </Popconfirm>
-            {Login ? <div style={{ zIndex: '10', position: 'absolute', right: '10px', top: '33vh', width: '100px', height: '100px', background: 'rgba(0,0,0,0)' }}></div> : ''}
+            {Login ? <div style={{ zIndex: '10', position: 'absolute', right: '10px', top: '33vh', width: '100px', height: '300px', background: 'rgba(0,0,0,0)' }}></div> : ''}
             <div className='setting'>
                 <div className="body">
-                    <div className='settingmask'><div className='settingMask' style={{ zIndex: Login }}></div><SettingComponent changeData={changeData} setChangeData={setChangeData} setting={firstSetting} /></div>
-                    <div className='settingmask'><div className='settingMask' style={{ zIndex: Login }}></div><SettingComponent changeData={changeData} setChangeData={setChangeData} setting={secondSetting} /></div>
-                    <div className='settingmask'><div className='settingMask' style={{ zIndex: Login }}></div><SettingComponent changeData={changeData} setChangeData={setChangeData} setting={thirdSetting} /></div>
+                    <div className='settingmask'><div className='settingMask' style={{ zIndex: Login }}></div><SettingComponent refresh={refresh} changeData={changeData} setChangeData={setChangeData} setting={firstSetting} /></div>
+                    <div className='settingmask'><div className='settingMask' style={{ zIndex: Login }}></div><SettingComponent refresh={refresh} changeData={changeData} setChangeData={setChangeData} setting={secondSetting} /></div>
+                    <div className='settingmask'><div className='settingMask' style={{ zIndex: Login }}></div><SettingComponent refresh={refresh} changeData={changeData} setChangeData={setChangeData} setting={thirdSetting} /></div>
                 </div>
             </div>
         </>
