@@ -13,7 +13,7 @@ import { Context } from '../../App'
 const uploadText = '确定上传数据吗？';
 const refreshText = '确定定值更新数据吗？';
 
-type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string }
+type context = { login: boolean, setLogin: Function, setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any }
 
 
 type Object = { point: number, value: number, type?: number, change?: number }
@@ -42,7 +42,6 @@ export default function Setting() {
 
 
     const confirmUpload = () => {
-        console.log(changeData, 'changeData');
         let di: any = []
         let ai: any = []
         let updateData: any = []

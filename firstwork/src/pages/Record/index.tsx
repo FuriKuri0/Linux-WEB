@@ -27,7 +27,7 @@ export default function Record() {
         )
     }
     useEffect(() => {
-        getData(10, 1)
+        // getData(10, 1)
     }, [])
     return (
         <>

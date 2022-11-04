@@ -6,7 +6,7 @@ type Props = { option: Array<string>, setType: Function }
 export default function Index({ option, setType }: Props) {
 
     const handleChange = (v: number) => {
-        console.log(v, 'select');
+        // console.log(v, 'select');
         setType(v.toString())
     }
 

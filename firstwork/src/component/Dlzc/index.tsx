@@ -15,14 +15,40 @@ export default function Dlzc({ show, setShowdl, setMaskClick, setMask }: Props) 
 
     const [Password, setPassport] = React.useState('')
     const [type, setType] = React.useState('1')
+    // const Login: any = () => {
+    //     axios({
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         method: 'POST',
+    //         url: `http://192.168.10.1/cgi-bin/main.cgi`,
+    //         data: { password: Password, type: 10 }
+    //     }).then(response => {
+    //         if (response.data === 1) {
+    //             Alert('登陆成功!')
+    //             setShowdl(false)
+    //             setMaskClick(false)
+    //             setMask(false)
+    //             setLogin(true)
+    //             localStorage.setItem('login', '0')
+    //         } else {
+    //             Alert('登陆失败!', 0)
+    //         }
+    //         console.log(response);
+    //     }, error => {
+    //         console.log(error);
+    //         Alert('登陆失败!', 0)
+    //     }
+    //     )
+    //     Password ? console.log(type, Password) : Alert('请输入密码!', 0)
+    // }
     const Login: any = () => {
         axios({
             headers: {
                 'Content-Type': 'application/json',
             },
-            method: 'POST',
-            url: `http://192.168.10.1/cgi-bin/main.cgi`,
-            data: { password: Password, type: 10 }
+            method: 'GET',
+            url: `http://192.168.10.1/cgi-bin/main.cgi?password=${Password}&type=10}`,
         }).then(response => {
             if (response.data === 1) {
                 Alert('登陆成功!')
@@ -34,7 +60,7 @@ export default function Dlzc({ show, setShowdl, setMaskClick, setMask }: Props) 
             } else {
                 Alert('登陆失败!', 0)
             }
-            console.log(response);
+            // console.log(response);
         }, error => {
             console.log(error);
             Alert('登陆失败!', 0)
