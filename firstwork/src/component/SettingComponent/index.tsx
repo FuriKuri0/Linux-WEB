@@ -12,7 +12,7 @@ import photo from '../../assets/images/bg.jpg'
 
 type context = { setMask: Function, setLoad: Function, maskClick: boolean, setMaskClick: Function, menu: string, configPoint: any }
 type Setting = { changeData: Array<object>, setChangeData: Function, setting: any, refresh: number };
-type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string, wugong: any, nobalance: any, xiebo: any }
+type Data = { road: string, yinshu: string, CTp: string, CTc: string, buchang: string, wugong: string, nobalance: string, xiebo: string }
 export default function SettingComponent(props?: Setting) {
     const { setLoad } = useContext<context>(Context)
     const { configPoint } = useContext<context>(Context)
@@ -88,7 +88,7 @@ export default function SettingComponent(props?: Setting) {
                     {setting[1].name}
                     {
                         setting[1].id === 'acting' && data?.yinshu !== undefined ? <MyInputNumber changeData={props?.changeData} setChangeData={props?.setChangeData} defaultValue={data?.yinshu} type={setting[1].id} tips={true} /> :
-                            setting[1].id === 'idle' && data?.wugong !== undefined ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={5} config={data.wugong === '0' ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
+                            setting[1].id === 'idle' && data?.wugong !== undefined ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={5} config={data.wugong === '0' || 0 ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
                                 setting[1].id === 'copy' ? <MyConfirmButton father='copy' title='参数复制' content='您确定要拷贝参数吗?' text='拷贝到多路' /> : ''
                     }
                 </div>
@@ -99,7 +99,7 @@ export default function SettingComponent(props?: Setting) {
                             data?.CTp === '1' ? [{ background: 'yellow', text: '负载侧', value: 1 }, { background: 'green', text: '网侧', value: 0 }]
                                 : [{ background: 'green', text: '网侧', value: 0 }, { background: 'yellow', text: '负载侧', value: 1 },]
                         } /> :
-                            setting[2].id === 'imbalance' && data?.nobalance !== undefined ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={6} config={data.nobalance === '0' ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
+                            setting[2].id === 'imbalance' && data?.nobalance !== undefined ? <MyButton changeData={props?.changeData} setChangeData={props?.setChangeData} point={6} config={data.nobalance === '0' || 0 ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
                                 setting[2].id === 'phase' ? <MyButton config={[{ background: 'green', text: '负序' }, { background: 'yellow', text: '正序' }]} /> : ''
                     }
                 </div>
@@ -107,7 +107,7 @@ export default function SettingComponent(props?: Setting) {
                     {setting[3].name}
                     {
                         setting[3].id === 'CTRatio' && data?.CTc !== undefined ? <MyInputNumber changeData={props?.changeData} setChangeData={props?.setChangeData} defaultValue={data?.CTc} type={setting[3].id} tips={true} /> :
-                            setting[3].id === 'harmonic' && data?.xiebo ? <MyButton point={7} changeData={props?.changeData} setChangeData={props?.setChangeData} config={data.xiebo === '0' ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
+                            setting[3].id === 'harmonic' && data?.xiebo ? <MyButton point={7} changeData={props?.changeData} setChangeData={props?.setChangeData} config={data.xiebo === '0' || 0 ? [{ background: 'green', text: '关闭', value: 0 }, { background: 'yellow', text: '使能', value: 1 },] : [{ background: 'yellow', text: '使能', value: 1 }, { background: 'green', text: '关闭', value: 0 },]} /> :
                                 setting[3].id === 'output' ? <MyButton config={[{ background: 'green', text: '运行' }, { background: 'yellow', text: '正常' }]} /> : ''}
                 </div>
             </div>
