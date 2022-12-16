@@ -1,0 +1,22 @@
+#components-dropdown-demo-arrow-center .ant-btn {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.ant-row-rtl #components-dropdown-demo-arrow-center .ant-btn {
+    margin-right: 0;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+.dropdown {
+    width: 2vh;
+    height: 3vh;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+
+    img {
+        margin-top: 0.5vh;
+        width: 20px;
+    }
+}

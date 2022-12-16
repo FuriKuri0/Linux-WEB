@@ -1,0 +1,21 @@
+.WarningComponent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.WarningComponent .title {
+  width: 100%;
+  text-align: center;
+  font-size: 5vw;
+  font-weight: 500;
+}
+.WarningComponent ul {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.WarningComponent ul li {
+  font-weight: 500;
+  color: black;
+  font-size: 4vw;
+}/*# sourceMappingURL=index.css.map */

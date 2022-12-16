@@ -1,0 +1,41 @@
+.Record {
+  overflow-x: auto;
+}
+.Record .space {
+  width: 1px !important;
+  height: 22px;
+  margin-left: 61px;
+  color: rgb(0, 0, 0);
+}
+.Record li:first-child {
+  height: 10vh;
+}
+.Record li {
+  display: flex;
+  width: calc(100vw + 300px);
+  align-items: center;
+}
+.Record li div {
+  width: 18%;
+  text-align: center;
+}
+.Record li div:last-child .des {
+  width: 420px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.Record li:first-child {
+  align-items: center;
+  font-size: 4vw;
+  font-weight: 600;
+}
+.Record li:nth-child(2n-1) {
+  background: rgb(246, 245, 245);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vh;
+}/*# sourceMappingURL=index.css.map */

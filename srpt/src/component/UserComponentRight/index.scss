@@ -1,0 +1,44 @@
+.right {
+    padding-top: 2vh;
+
+    .head {
+        display: flex;
+        width: 100vw;
+        margin: 0;
+
+        li {
+            text-align: center;
+            margin: 0 15vw;
+            font-size: 5vw;
+            font-weight: 500;
+            display: flex;
+        }
+
+        li:last-child {
+            margin-right: 10vw !important;
+        }
+    }
+
+    .head:nth-child(n+2) {
+        li {
+            margin: 1.5vh 5vw;
+        }
+    }
+
+    .head:last-child {
+        margin-bottom: 30px;
+
+        li {
+            margin: 5.5vw 16vw 0 16vw;
+
+        }
+
+        div {
+            width: 5vw;
+            height: 5vw;
+            background-color: red;
+            border-radius: 5vw;
+            border: 2px solid gray;
+        }
+    }
+}

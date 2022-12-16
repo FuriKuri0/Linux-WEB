@@ -1,0 +1,34 @@
+.UserComponent {
+    width: 95%;
+    margin: 5vh 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+
+    .left {
+        margin: 5vh 0vh;
+        width: 20vw;
+        border-radius: 5vw 0 0 5vw;
+        border: 1px solid rgba(128, 128, 128, 1)
+    }
+
+    .right {
+        width: 75vw;
+        border-radius: 3vw;
+        border: 1px solid rgba(128, 128, 128, 1);
+        border-right: 2px solid rgba(128, 128, 128, 1);
+        overflow-x: auto;
+    }
+
+    .right::-webkit-scrollbar {
+        height: 3vh;
+        border-radius: 0 0 2.5vw 2.5vw;
+        background-color: rgb(227, 227, 227);
+    }
+
+    .right::-webkit-scrollbar-thumb {
+        height: 2vh;
+        border-radius: 5px;
+        background-color: rgb(148, 148, 148);
+    }
+}

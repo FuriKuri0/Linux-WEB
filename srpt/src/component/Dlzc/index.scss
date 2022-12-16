@@ -1,0 +1,31 @@
+.dlzc {
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5vw 5vw 0 0;
+    bottom: 0px;
+    width: 92%;
+    height: 0px;
+    background-color: white;
+    transition: all .3s;
+    overflow: hidden;
+
+    .title {
+        font-size: 3vw;
+        color: rgba(0, 0, 0, .5);
+        text-align: center;
+        padding-top: 3vh;
+
+        strong {
+            font-weight: 500;
+            font-size: 5vw;
+            color: rgba(0, 0, 0, 1);
+
+        }
+    }
+}
+
+.show {
+    height: 40vh;
+}

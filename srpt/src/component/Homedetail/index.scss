@@ -1,0 +1,27 @@
+.Homedetail {
+    overflow: hidden;
+
+    .title {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        font-size: 6vw;
+    }
+
+    ul {
+        font-size: 3.5vw;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            width: 20px;
+            display: flex;
+        }
+
+        li:first-child {
+            width: 100px;
+            // margin: 0 20px;
+        }
+    }
+}

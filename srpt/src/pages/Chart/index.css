@@ -1,0 +1,13 @@
+.Chart {
+  background-color: rgb(242, 242, 242);
+}
+.Chart i {
+  padding-bottom: 6px;
+  margin-left: 10px;
+  font-size: 4vw;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s;
+}
+.Chart i:hover {
+  border-bottom: 1px solid rgb(75, 169, 70);
+}/*# sourceMappingURL=index.css.map */

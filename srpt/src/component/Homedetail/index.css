@@ -1,0 +1,22 @@
+.Homedetail {
+  overflow: hidden;
+}
+.Homedetail .title {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 6vw;
+}
+.Homedetail ul {
+  font-size: 3.5vw;
+  display: flex;
+  justify-content: space-around;
+}
+.Homedetail ul li {
+  width: 20px;
+  display: flex;
+}
+.Homedetail ul li:first-child {
+  width: 100px;
+}/*# sourceMappingURL=index.css.map */

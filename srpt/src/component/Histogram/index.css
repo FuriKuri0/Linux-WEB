@@ -1,0 +1,8 @@
+.HistogramChartBox {
+  width: 95%;
+  background: white;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5vw;
+  height: 130vh;
+}/*# sourceMappingURL=index.css.map */

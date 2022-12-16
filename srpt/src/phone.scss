@@ -1,0 +1,23 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media screen and (min-width:600px) {
+    .ant-select-item {
+        font-size: 3.5vw !important;
+        line-height: 1.5715 !important;
+    }
+
+    .ant-dropdown-menu-title-content {
+        a {
+            font-size: 3vw;
+
+        }
+    }
+
+    .ant-dropdown-menu-title-content {
+        line-height: 3vh;
+    }
+}

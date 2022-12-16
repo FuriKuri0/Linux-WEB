@@ -1,0 +1,162 @@
+// @media screen and (max-aspect-ratio: 1/1) {
+// }
+// @import 'phone';
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+//横过来
+@media screen and (min-aspect-ratio: 1/1) {
+    .bgImg {
+        display: none;
+    }
+
+    .PhoneHead {
+        height: 0;
+    }
+
+    .Home {
+        .border {
+            height: 62vh;
+            width: 96vh;
+        }
+
+        .HomeComponent {
+            height: 60vh;
+
+            ul li {
+                height: 7vh;
+            }
+        }
+
+        .fuzhu {
+            bottom: 25vh;
+        }
+    }
+
+    .setting {
+        padding-top: 50px;
+    }
+
+    .UserComponent {
+        padding-top: 50px;
+        .left {
+            padding-bottom: 3vh;
+        }
+        .right {
+            .head {
+                justify-content: space-around;
+                width: 130vw;
+                margin-bottom: 5.4vh;
+                li {
+                    font-size: 3vw;
+                    margin: 0 3.5vw;
+                }
+                li:last-child {
+                    margin-right: 3vw!important;
+                }
+                .MyInputNumber {
+                    font-size: 18px;
+                }
+            }
+            .first {
+                margin-bottom: 0;
+            }
+            .head:last-child li {
+                margin: 0;
+            }
+            .last:last-child li {
+                margin-right: 0!important;
+            }
+        }
+    }
+
+    .UserComponent2 {
+        padding-bottom: 70px;
+        .UserComponent {
+            .right {
+                padding-top: 1.5vh;
+                .head {
+                    margin-bottom: 3.5vh;
+                }
+                .head:last-child li {
+                    margin: 2.9vh 3vw!important;
+                }
+                .first {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .TSC {
+        padding-top: 50px;
+
+    }
+
+    .Chart {
+        padding-top: 50px;
+
+    }
+
+    .Record {
+        padding-top: 50px;
+    }
+
+    .Warning {
+        padding-top: 50px;
+
+    }
+}
+
+//ipad
+@media screen and (min-width:600px) {
+    .ant-select-item {
+        font-size: 3.5vw !important;
+        line-height: 1.5715 !important;
+    }
+
+    .ant-dropdown-menu-title-content {
+        a {
+            font-size: 3vw;
+            font-weight: 200;
+
+        }
+    }
+
+    .ant-dropdown-menu-title-content {
+        line-height: 3vh;
+    }
+
+    .right {
+
+
+        .head li {
+            margin: 0 5.5vw;
+        }
+
+        .head:nth-child(n+2) li {
+            margin: 2.25vh 3vw;
+
+        }
+
+        .head:last-child li {
+            margin: 5.5vw 5vw 0 8vw;
+        }
+    }
+
+    .UserComponent2 .right {
+        .head:nth-child(n+2) li {
+            margin: 2.9vh 3vw;
+        }
+    }
+
+    // @media screen and (min-aspect-ratio: 1/1) {
+    //     @import 'pc';
+    // }
+    .HistogramChart ul {
+        margin-left: 0vw;
+    }
+}
